@@ -1,0 +1,60 @@
+@import 'bourbon/dist/_bourbon.scss';
+
+$lb-w: 1020px;
+$lb-h: (($lb-w / 4) * 3);
+@mixin test($myColor) {
+	outline: 1px solid pink;
+	* {outline: 1px solid $myColor;}
+}
+#main-frame {
+	@include test(red);
+	background-color: rgba(0, 0, 0, 0.25);
+	width: $lb-w;
+	height: $lb-h;
+	display: block;
+	margin: auto;
+	position: relative;
+}
+.frame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	> div.hit-targets {
+		position: absolute;
+		min-width: 10px;
+		min-height: 10px;
+		> img {
+			position: absolute;
+			min-width: 100px;
+			min-height: 100px;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		> img.on {
+			display: block;
+			z-index: 100;
+		}
+		> img.off {
+			display: none;
+			z-index: 0;
+		}
+	}
+}
+.dog-type-l {
+	background-image: url(http://placehold.it/100x100/&text=dog-l);
+}
+.dog-type-m {
+	background-image: url(http://placehold.it/100x100/&text=dog-m);
+}
+.dog-type-s {
+	background-image: url(http://placehold.it/100x100/&text=dog-s);
+}
+.cat-type-m {
+	background-image: url(http://placehold.it/100x100/&text=cat);
+}
+.com-type-m {
+	background-image: url(http://placehold.it/100x100/&text=comm);
+}
+
+
+

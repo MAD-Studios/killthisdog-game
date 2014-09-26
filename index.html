@@ -8,10 +8,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/reset.css"><!-- First Style -->
+        <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
+        <link rel="stylesheet" type="text/css" href="css/main.min.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -19,9 +21,31 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
+        
+        <div id="main-frame">
+            <div id=""></div>
+            <!-- PLAY SCREEN -->
+            <!-- html comment -->
+            <div class="frame play-active">
+                <div id="background-scene">
+                    <div class="environment-dumpster"></div>
+                    <div class="environment-transhcan1"></div>
+                    <div class="environment-transhcan2"></div>
+                    <div class="environment-bag"></div>
+                    <div class="environment-manhole"></div>
+                </div>
+                <!-- .hit-targets can be inactive or active for point collection -->
+                <div class="hit-targets inactive location-dumpster">
+                    <!-- tap the target and grab the value img with the 'on' class name -->
+                    <img class="dog-type-l on" data-scoreVal="100">
+                    <img class="dog-type-m on" data-scoreVal="50">
+                    <img class="dog-type-s on" data-scoreVal="25">
+                    <img class="cat-type-m on" data-scoreVal="25">
+                    <img class="com-type-m on" data-scoreVal="1000">
+                </div>
+            </div>
+        </div>
+        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
