@@ -21,12 +21,40 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
+
         <div id="main-frame">
-            <div id=""></div>
             <!-- PLAY SCREEN -->
-            <!-- html comment -->
             <div class="frame play-active">
+                <div id="screen-splash"></div>
+                <div id="screen-tutorial"></div>
+                <!-- Header Only -->
+                <div id="game-menu">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="85%" align="left">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <!-- game-type-save will change the icon background image -->
+                                            <div class="game-icon game-type-kill"></div>
+                                        </td>
+                                        <td>
+                                            <table border="0" cellspacing="0" cellpadding="0" id="pointCounterTable">
+                                                <tr>
+                                                    <td id="pointCount">2,145</td>
+                                                    <td>/</td>
+                                                    <td id="pointMax">20,000</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="15%" align="center" id="gameTimer">00:00</td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- Background Scene Only -->
                 <div id="background-scene">
                     <div class="environment-dumpster"></div>
                     <div class="environment-transhcan1"></div>
@@ -35,17 +63,45 @@
                     <div class="environment-manhole"></div>
                 </div>
                 <!-- .hit-targets can be inactive or active for point collection -->
-                <div class="hit-targets inactive location-dumpster">
+                <div class="hit-targets inactive location-dumpster" name="dumpster-target">
                     <!-- tap the target and grab the value img with the 'on' class name -->
-                    <img class="dog-type-l on" data-scoreVal="100">
-                    <img class="dog-type-m on" data-scoreVal="50">
-                    <img class="dog-type-s on" data-scoreVal="25">
-                    <img class="cat-type-m on" data-scoreVal="25">
+                    <img class="dog-type-l on" data-scoreVal="10">
+                    <img class="dog-type-m off" data-scoreVal="25">
+                    <img class="dog-type-s off" data-scoreVal="50">
+                    <img class="cat-type-m off" data-scoreVal="100">
+                    <img class="com-type-m off" data-scoreVal="1000">
+                </div>
+                <div class="hit-targets inactive location-trashcan1" name="trashcan1-target">
+                    <img class="dog-type-l on" data-scoreVal="10">
+                    <img class="dog-type-m on" data-scoreVal="25">
+                    <img class="dog-type-s on" data-scoreVal="50">
+                    <img class="cat-type-m on" data-scoreVal="100">
+                    <img class="com-type-m on" data-scoreVal="1000">
+                </div>
+                <div class="hit-targets inactive location-trashcan2" name="trashcan2-target">
+                    <img class="dog-type-l on" data-scoreVal="10">
+                    <img class="dog-type-m on" data-scoreVal="25">
+                    <img class="dog-type-s on" data-scoreVal="50">
+                    <img class="cat-type-m on" data-scoreVal="100">
+                    <img class="com-type-m on" data-scoreVal="1000">
+                </div>
+                <div class="hit-targets inactive location-bag" name="bag-target">
+                    <img class="dog-type-l on" data-scoreVal="10">
+                    <img class="dog-type-m on" data-scoreVal="25">
+                    <img class="dog-type-s on" data-scoreVal="50">
+                    <img class="cat-type-m on" data-scoreVal="100">
+                    <img class="com-type-m on" data-scoreVal="1000">
+                </div>
+                <div class="hit-targets inactive location-manhole" name="manhole-target">
+                    <img class="dog-type-l on" data-scoreVal="10">
+                    <img class="dog-type-m on" data-scoreVal="25">
+                    <img class="dog-type-s on" data-scoreVal="50">
+                    <img class="cat-type-m on" data-scoreVal="100">
                     <img class="com-type-m on" data-scoreVal="1000">
                 </div>
             </div>
         </div>
-        
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 

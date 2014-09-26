@@ -1,1 +1,244 @@
-#main-frame{outline:1px solid pink;background-color:rgba(0,0,0,0.25);width:1020px;height:765px;display:block;margin:auto;position:relative}#main-frame *{outline:1px solid red}.frame{position:relative;width:100%;height:100%}.frame>div.hit-targets{position:absolute;min-width:10px;min-height:10px}.frame>div.hit-targets>img{position:absolute;min-width:100px;min-height:100px;background-repeat:no-repeat;background-position:center}.frame>div.hit-targets>img.on{display:block;z-index:100}.frame>div.hit-targets>img.off{display:none;z-index:0}.dog-type-l{background-image:url(http://placehold.it/100x100/&text=dog-l)}.dog-type-m{background-image:url(http://placehold.it/100x100/&text=dog-m)}.dog-type-s{background-image:url(http://placehold.it/100x100/&text=dog-s)}.cat-type-m{background-image:url(http://placehold.it/100x100/&text=cat)}.com-type-m{background-image:url(http://placehold.it/100x100/&text=comm)}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-image: -webkit-linear-gradient( top , #000, #F4F5F7);
+  background-image: linear-gradient(to bottom, #000, #F4F5F7);
+}
+
+#main-frame {
+  outline: 1px solid white;
+  background-color: #CCC;
+  width: 1020px;
+  height: 765px;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+#main-frame * {
+  outline: 1px solid red;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.frame > div {
+  position: absolute;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+#game-menu {
+  width: 100%;
+  min-height: 0 !important;
+  outline: 1px solid darkgray;
+}
+#game-menu > table > tr > td {
+  padding: 10px;
+}
+#game-menu td {
+  font-size: 24px;
+  text-align: center;
+  vertical-align: middle;
+}
+#game-menu #pointCounterTable {
+  width: 300px;
+  margin-left: 15px;
+}
+#game-menu #pointCounterTable td {
+  padding: 5px;
+}
+#game-menu #pointCounterTable #pointCount {
+  text-align: right;
+}
+#game-menu #pointCounterTable #pointMax {
+  text-align: left;
+}
+#game-menu * {
+  outline: 1px solid white;
+}
+
+.game-icon {
+  width: 100px;
+  height: 50px;
+}
+
+.game-type-save {
+  background-image: url(http://placehold.it/100x50/&text=Save);
+}
+
+.game-type-kill {
+  background-image: url(http://placehold.it/100x50/&text=Kill);
+}
+
+#background-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  outline: 1px solid blue;
+}
+#background-scene * {
+  outline: 1px solid black;
+}
+#background-scene > div {
+  position: absolute;
+}
+#background-scene .environment-transhcan1,
+#background-scene .environment-transhcan2 {
+  width: 20%;
+  height: 40%;
+}
+#background-scene .environment-dumpster {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  top: 30%;
+  right: auto;
+  bottom: auto;
+  left: 5%;
+}
+#background-scene .environment-transhcan1 {
+  position: absolute;
+  top: 31.5%;
+  right: auto;
+  bottom: auto;
+  left: 57%;
+}
+#background-scene .environment-transhcan2 {
+  position: absolute;
+  top: 30.5%;
+  right: auto;
+  bottom: auto;
+  left: 67%;
+}
+#background-scene .environment-bag {
+  width: 25%;
+  height: 35%;
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 40%;
+}
+#background-scene .environment-manhole {
+  width: 30%;
+  height: 20%;
+  position: absolute;
+  top: 75%;
+  right: auto;
+  bottom: auto;
+  left: 62%;
+}
+#background-scene .environment-dumpster:before {
+  content: 'dumpster';
+}
+#background-scene .environment-transhcan1:before {
+  content: 'transhcan1';
+}
+#background-scene .environment-transhcan2:before {
+  content: 'transhcan2';
+}
+#background-scene .environment-bag:before {
+  content: 'bag';
+}
+#background-scene .environment-manhole:before {
+  content: 'manhole';
+}
+
+.dog-type-l {
+  background-image: url(http://placehold.it/100x100/&text=dog-l);
+}
+
+.dog-type-m {
+  background-image: url(http://placehold.it/100x100/&text=dog-m);
+}
+
+.dog-type-s {
+  background-image: url(http://placehold.it/100x100/&text=dog-s);
+}
+
+.cat-type-m {
+  background-image: url(http://placehold.it/100x100/&text=cat);
+}
+
+.com-type-m {
+  background-image: url(http://placehold.it/100x100/&text=comm);
+}
+
+.hit-targets {
+  width: auto;
+}
+.hit-targets > img {
+  position: absolute;
+  min-width: 100px;
+  min-height: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.hit-targets > img.on {
+  display: block;
+  z-index: 100;
+}
+.hit-targets > img.off {
+  display: none;
+  z-index: 0;
+}
+
+.hit-targets:before {
+  content: attr(name) "";
+  font-size: 10px;
+}
+
+.location-dumpster {
+  width: 15%;
+  height: 15%;
+  position: absolute;
+  top: 40%;
+  right: 0;
+  bottom: 0;
+  left: 10%;
+}
+
+.location-trashcan1 {
+  width: 15%;
+  height: 15%;
+  position: absolute;
+  top: 40%;
+  right: 0;
+  bottom: 0;
+  left: 59%;
+}
+
+.location-trashcan2 {
+  width: 15%;
+  height: 15%;
+  position: absolute;
+  top: 38%;
+  right: 0;
+  bottom: 0;
+  left: 69%;
+}
+
+.location-bag {
+  width: 15%;
+  height: 15%;
+  position: absolute;
+  top: 65%;
+  right: 0;
+  bottom: 0;
+  left: 35%;
+}
+
+.location-manhole {
+  width: 15%;
+  height: 15%;
+  position: absolute;
+  top: 79%;
+  right: 0;
+  bottom: 0;
+  left: 70%;
+}
