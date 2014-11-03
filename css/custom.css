@@ -1,3 +1,8 @@
+::selection,
+img::selection {
+  background-color: none;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -25,6 +30,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  display: none;
 }
 .frame > div {
   position: absolute;
@@ -32,9 +38,14 @@ body {
   min-height: 100px;
 }
 
+.frame.active {
+  display: block;
+}
+
 #game-menu {
   width: 100%;
   min-height: 0 !important;
+  z-index: 10;
   outline: 1px solid darkgray;
 }
 #game-menu > table > tr > td {
@@ -79,7 +90,10 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  z-index: 1;
   outline: 1px solid blue;
+  background: url(../images/bg-template.jpg) no-repeat;
+  background-size: 1020px;
 }
 #background-scene * {
   outline: 1px solid black;
@@ -87,19 +101,26 @@ body {
 #background-scene > div {
   position: absolute;
 }
-#background-scene .environment-transhcan1,
+#background-scene .environment-transhcan1 {
+  width: 25%;
+  height: 40%;
+  background: url(../images/e-trashCan-1.png) no-repeat;
+}
 #background-scene .environment-transhcan2 {
   width: 20%;
   height: 40%;
+  background: url(../images/e-trashCan-2.png) no-repeat;
+  background-size: contain;
 }
 #background-scene .environment-dumpster {
-  width: 50%;
-  height: 60%;
+  width: 510px;
+  height: 496px;
   position: absolute;
-  top: 30%;
+  top: 15%;
   right: auto;
   bottom: auto;
-  left: 5%;
+  left: 7%;
+  background: url(../images/e-dumpster.png) no-repeat;
 }
 #background-scene .environment-transhcan1 {
   position: absolute;
@@ -149,41 +170,83 @@ body {
   content: 'manhole';
 }
 
-.dog-type-l {
-  background-image: url(http://placehold.it/100x100/&text=dog-l);
+.dog-type-s, .cat-type-m {
+  background-position: 0px 0px;
 }
 
-.dog-type-m {
-  background-image: url(http://placehold.it/100x100/&text=dog-m);
+.dog-type-l {
+  background-position: -10px 0px;
+}
+
+.dog-type-l {
+  background-image: url(../images/sprite-dog-large.png);
 }
 
 .dog-type-s {
-  background-image: url(http://placehold.it/100x100/&text=dog-s);
+  background-image: url(../images/sprite-dog-small.png);
 }
 
 .cat-type-m {
-  background-image: url(http://placehold.it/100x100/&text=cat);
+  background-image: url(../images/sprite-cat-small.png);
 }
 
-.com-type-m {
-  background-image: url(http://placehold.it/100x100/&text=comm);
+.hit .dog-type-l {
+  background-position: -132px 0px;
+}
+
+.hit .dog-type-s {
+  background-position: -121px 0px;
+}
+
+.hit .cat-type-m {
+  background-position: -120px 0px;
+}
+
+.kill .dog-type-l,
+.kill .dog-type-s,
+.kill .cat-type-m {
+  background-position: -245px 0px;
+}
+
+.save .dog-type-l {
+  background-position: -355px 0px;
+}
+
+.save .dog-type-s {
+  background-position: -350px 0px;
+}
+
+.save .cat-type-m {
+  background-position: -347px 0px;
+}
+
+.saved .dog-type-l {
+  background-position: -475px 0px;
+}
+
+.saved .dog-type-s {
+  background-position: -470px 0px;
+}
+
+.saved .cat-type-m {
+  background-position: -464px 0px;
 }
 
 .hit-targets {
   width: auto;
 }
-.hit-targets > img {
+.hit-targets > .img {
   position: absolute;
   min-width: 100px;
   min-height: 100px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-size: 602px 100px;
 }
-.hit-targets > img.on {
+.hit-targets > .img.on {
   display: block;
   z-index: 100;
 }
-.hit-targets > img.off {
+.hit-targets > .img.off {
   display: none;
   z-index: 0;
 }
