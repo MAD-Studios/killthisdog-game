@@ -13,4 +13,5 @@ http://killthisdog.com/game-preview
   <li>CSS Reset</li>
   <li>Sass with Bourbon</li>
   <li>CodeKit</li>
+  <li>Koala (optional)</li>
 </ul>

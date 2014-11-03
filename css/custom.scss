@@ -70,32 +70,42 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 	@include test(blue, black);
 	background: url(../images/bg-template.jpg) no-repeat;
 	background-size: 1020px ;
-	> div {position: absolute;}
+	> div {
+		position: absolute;
+		opacity: 0.3;
+		outline: 1px solid pink;
+	}
+	> div.environment-items {background-size: contain;}
 	// Background Dimensions and Positions
 	.environment-transhcan1 {
-		@include wh-percent(25%, 40%);
+		@include wh-percent(23.6%, 30.7%);
+		@include position( absolute, 36% auto auto 50.6% );
 		background: url(../images/e-trashCan-1.png) no-repeat;
 	}
 	.environment-transhcan2 {
-		@include wh-percent(20%, 40%);
+		@include wh-percent(15.8%, 28.5%);
+		@include position( absolute, 33% auto auto 63.3% );
 		background: url(../images/e-trashCan-2.png) no-repeat;
-		background-size: contain;
 	}
 	.environment-dumpster {
-		// @include wh-percent(50%, 60%);
-		@include wh-percent(510px, 496px);
-		@include position( absolute, 15% auto auto 7% );
+		@include wh-percent(46.1%, 61%);
+		@include position( absolute, 22% auto auto 8% );
 		background: url(../images/e-dumpster.png) no-repeat;
 	}
-	.environment-transhcan1 {@include position( absolute, 31.5% auto auto 57% );}
-	.environment-transhcan2 {@include position( absolute, 30.5% auto auto 67% );}
 	.environment-bag {
-		@include wh-percent(25%, 35%);
-		@include position( absolute, 50% auto auto 40% );
+		@include wh-percent(17.5%, 28%);
+		@include position( absolute, 48.5% auto auto 45.8% );
+		background: url(../images/e-trashBag.png) no-repeat;
 	}
 	.environment-manhole {
-		@include wh-percent(30%, 20%);
-		@include position( absolute, 75% auto auto 62% );
+		@include wh-percent(28.5%, 19.5%);
+		@include position( absolute, 65.5% auto auto 67.5% );
+		background: url(../images/e-manhole.png) no-repeat;
+	}
+	.environment-cardboardBox {
+		@include wh-percent(21.5%, 18.6%);
+		@include position( absolute, 46.9% auto auto 73.9% );
+		background: url(../images/e-cardboardBox.png) no-repeat;
 	}
 	// Remove when done testing
 	.environment-dumpster:before {content: 'dumpster';}
@@ -103,9 +113,11 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 	.environment-transhcan2:before {content: 'transhcan2';}
 	.environment-bag:before {content: 'bag';}
 	.environment-manhole:before {content: 'manhole';}
+	.environment-cardboardBox:before {content: 'cardboardbox';}
 }
 // Target Assets
-.dog-type-s, .cat-type-m {background-position: 0px 0px;}
+.dog-type-s,
+.cat-type-m {background-position: 0px 0px;}
 .dog-type-l {background-position: -10px 0px;}
 .dog-type-l {background-image: url(../images/sprite-dog-large.png);}
 .dog-type-s {background-image: url(../images/sprite-dog-small.png);}
@@ -131,6 +143,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 // Target Locations
 .hit-targets {
 	width: auto;
+	outline: 1px solid pink !important;
 	> .img {
 		position: absolute;
 		min-width: 100px;
@@ -153,23 +166,27 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 }
 .location-dumpster {
 	@include wh-percent(15%, 15%);
-	@include position(absolute, 40% 0 0 10%);
+	@include position(absolute, 25.7% 0 0 20%);
 }
 .location-trashcan1 {
 	@include wh-percent(15%, 15%);
-	@include position(absolute, 40% 0 0 59%);
+	@include position(absolute, 24.5% 0 0 53%);
 }
 .location-trashcan2 {
 	@include wh-percent(15%, 15%);
-	@include position(absolute, 38% 0 0 69%);
+	@include position(absolute, 21.3% 0 0 66%);
 }
 .location-bag {
 	@include wh-percent(15%, 15%);
-	@include position(absolute, 65% 0 0 35%);
+	@include position(absolute, 39% 0 0 49%);
 }
 .location-manhole {
 	@include wh-percent(15%, 15%);
-	@include position(absolute, 79% 0 0 70%);
+	@include position(absolute, 68% 0 0 73%);
+}
+.location-cardboardBox {
+	@include wh-percent(20%, 20%);
+	@include position(absolute, 33% 0 0 80%);
 }
 
 
