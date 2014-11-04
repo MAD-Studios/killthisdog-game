@@ -1,98 +1,221 @@
 ::selection,
 img::selection {
-  background-color: none;
-}
+  background-color: none; }
 
+@font-face {
+  font-family: Veneer-Three;
+  src: url("../fonts/Veneer-Three.otf"); }
 html, body {
   width: 100%;
-  height: 100%;
-}
+  height: 100%; }
 
 body {
   background-image: -webkit-linear-gradient( top , #000, #F4F5F7);
-  background-image: linear-gradient(to bottom, #000, #F4F5F7);
-}
+  background-image: linear-gradient(to bottom, #000, #F4F5F7); }
 
 #main-frame {
-  outline: 1px solid white;
   background-color: #CCC;
   width: 1020px;
   height: 765px;
   display: block;
   margin: auto;
-  position: relative;
-}
-#main-frame * {
-  outline: 1px solid red;
-}
+  position: relative; }
 
 .frame {
   position: relative;
   width: 100%;
   height: 100%;
   display: none;
-}
-.frame > div {
-  position: absolute;
-  min-width: 100px;
-  min-height: 100px;
-}
+  background-color: #921A1D;
+  text-align: center; }
+  .frame > div {
+    position: absolute;
+    min-width: 100px;
+    min-height: 100px; }
+  .frame button {
+    width: 280px;
+    margin: 0px 40px;
+    font-family: Veneer-Three;
+    font-size: 3em;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #921A1D;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: none; }
+  .frame button:hover {
+    color: #58595B; }
+  .frame .green-btn {
+    background-color: #82CCB6;
+    margin: 0px 20px; }
 
 .frame.active {
+  display: block; }
+
+.frame.start-screen {
   display: block;
-}
+  background-color: #921A1D;
+  text-align: center; }
+  .frame.start-screen > div {
+    position: relative; }
+  .frame.start-screen .headline-pic {
+    padding-top: 50px; }
+    .frame.start-screen .headline-pic img {
+      width: 90%; }
+  .frame.start-screen .subheadline {
+    width: 60%;
+    padding-top: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    color: #82CCB6;
+    margin: 0 auto; }
+  .frame.start-screen .subheadline2 {
+    padding-top: 10px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.6em;
+    color: #FFFFFF; }
+  .frame.start-screen .button-wrapper {
+    margin-top: -20px; }
+
+.frame.kill-pets > div, .frame.save-pets > div {
+  position: relative; }
+.frame.kill-pets .headline, .frame.save-pets .headline {
+  padding-top: 60px;
+  font-family: Veneer-Three;
+  font-size: 4em;
+  color: #ffffff; }
+.frame.kill-pets .subheadline, .frame.save-pets .subheadline {
+  width: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+  color: #ffffff;
+  margin: 0 auto; }
+.frame.kill-pets .instruction-points, .frame.save-pets .instruction-points {
+  font-family: Veneer-Three; }
+  .frame.kill-pets .instruction-points > div, .frame.save-pets .instruction-points > div {
+    display: inline-block; }
+  .frame.kill-pets .instruction-points div, .frame.save-pets .instruction-points div {
+    color: #ffffff;
+    font-size: 1.2em; }
+  .frame.kill-pets .instruction-points .points, .frame.save-pets .instruction-points .points {
+    color: #82CCB6;
+    font-size: 2em; }
+.frame.kill-pets .button-wrapper, .frame.save-pets .button-wrapper {
+  margin-top: 50px; }
+
+.frame.kill-commissioner > div, .frame.save-commissioner > div {
+  position: relative; }
+.frame.kill-commissioner .subheadline, .frame.save-commissioner .subheadline {
+  font-family: Veneer-Three;
+  font-size: 4em;
+  color: #ffffff;
+  margin: 0 auto; }
+.frame.kill-commissioner .subheadline2, .frame.save-commissioner .subheadline2 {
+  width: 60%;
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+  color: #ffffff;
+  margin: 0 auto; }
+.frame.kill-commissioner .button-wrapper, .frame.save-commissioner .button-wrapper {
+  margin-top: 50px; }
+
+.frame.kill-score > div, .frame.save-score > div {
+  position: relative; }
+.frame.kill-score .headline, .frame.save-score .headline {
+  padding-top: 150px;
+  font-family: Arial, sans-serif;
+  font-size: 3em;
+  color: #ffffff; }
+.frame.kill-score .score, .frame.save-score .score {
+  margin-top: -40px;
+  margin-bottom: 10px;
+  font-family: Veneer-Three;
+  font-size: 6em;
+  color: #ffffff; }
+.frame.kill-score .subheadline, .frame.save-score .subheadline {
+  width: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+  color: #ffffff;
+  margin: 0 auto; }
+.frame.kill-score .subheadline2, .frame.save-score .subheadline2 {
+  width: 80%;
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+  color: #82CCB6;
+  margin: 0 auto; }
+.frame.kill-score .button-wrapper, .frame.save-score .button-wrapper {
+  margin-top: 30px; }
+
+.frame.share > div {
+  position: relative; }
+.frame.share .bodytext {
+  width: 75%;
+  line-height: 1.6em;
+  padding-top: 100px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 1.3em;
+  color: #ffffff;
+  margin: 0px auto; }
+.frame.share .learn-more {
+  margin-top: 50px; }
+.frame.share .button-wrapper {
+  margin-top: 50px; }
+
+.col-4 {
+  width: 20%;
+  overflow: hidden; }
+  .col-4 .img-wrapper {
+    height: 229px;
+    width: 315px;
+    margin-left: -53px;
+    text-align: left; }
+  .col-4 img {
+    position: absolute; }
+
+.offset-col-2 {
+  margin-left: 12.5%; }
 
 #game-menu {
   width: 100%;
   min-height: 0 !important;
-  z-index: 10;
-  outline: 1px solid darkgray;
-}
-#game-menu > table > tr > td {
-  padding: 10px;
-}
-#game-menu td {
-  font-size: 24px;
-  text-align: center;
-  vertical-align: middle;
-}
-#game-menu #pointCounterTable {
-  width: 300px;
-  margin-left: 15px;
-}
-#game-menu #pointCounterTable td {
-  padding: 5px;
-}
-#game-menu #pointCounterTable #pointCount {
-  text-align: right;
-}
-#game-menu #pointCounterTable #pointMax {
-  text-align: left;
-}
-#game-menu * {
-  outline: 1px solid white;
-}
+  z-index: 10; }
+  #game-menu > table > tr > td {
+    padding: 10px; }
+  #game-menu td {
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle; }
+  #game-menu #pointCounterTable {
+    width: 300px;
+    margin-left: 15px; }
+    #game-menu #pointCounterTable td {
+      padding: 5px; }
+    #game-menu #pointCounterTable #pointCount {
+      text-align: right; }
+    #game-menu #pointCounterTable #pointMax {
+      text-align: left; }
 
 .game-icon {
   width: 100px;
-  height: 50px;
-}
+  height: 50px; }
 
 .game-type-save {
-  background-image: url(http://placehold.it/100x50/&text=Save);
-}
+  background-image: url(http://placehold.it/100x50/&text=Save); }
 
 .game-type-kill {
-  background-image: url(http://placehold.it/100x50/&text=Kill);
-}
+  background-image: url(http://placehold.it/100x50/&text=Kill); }
 
 #background-scene {
   position: relative;
   width: 100%;
   height: 100%;
   z-index: 1;
-  outline: 1px solid blue;
   background: url(../images/bg-template.jpg) no-repeat;
+<<<<<<< Updated upstream
   background-size: 1020px;
 }
 #background-scene * {
@@ -189,66 +312,117 @@ body {
 .cat-type-m {
   background-position: 0px 0px;
 }
+=======
+  background-size: 1020px; }
+  #background-scene > div {
+    position: absolute; }
+  #background-scene .environment-transhcan1 {
+    width: 25%;
+    height: 40%;
+    background: url(../images/e-trashCan-1.png) no-repeat; }
+  #background-scene .environment-transhcan2 {
+    width: 20%;
+    height: 40%;
+    background: url(../images/e-trashCan-2.png) no-repeat;
+    background-size: contain; }
+  #background-scene .environment-dumpster {
+    width: 510px;
+    height: 496px;
+    position: absolute;
+    top: 15%;
+    right: auto;
+    bottom: auto;
+    left: 7%;
+    background: url(../images/e-dumpster.png) no-repeat; }
+  #background-scene .environment-transhcan1 {
+    position: absolute;
+    top: 31.5%;
+    right: auto;
+    bottom: auto;
+    left: 57%; }
+  #background-scene .environment-transhcan2 {
+    position: absolute;
+    top: 30.5%;
+    right: auto;
+    bottom: auto;
+    left: 67%; }
+  #background-scene .environment-bag {
+    width: 25%;
+    height: 35%;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 40%; }
+  #background-scene .environment-manhole {
+    width: 30%;
+    height: 20%;
+    position: absolute;
+    top: 75%;
+    right: auto;
+    bottom: auto;
+    left: 62%; }
+  #background-scene .environment-dumpster:before {
+    content: 'dumpster'; }
+  #background-scene .environment-transhcan1:before {
+    content: 'transhcan1'; }
+  #background-scene .environment-transhcan2:before {
+    content: 'transhcan2'; }
+  #background-scene .environment-bag:before {
+    content: 'bag'; }
+  #background-scene .environment-manhole:before {
+    content: 'manhole'; }
+
+.dog-type-s, .cat-type-m {
+  background-position: 0px 0px; }
+>>>>>>> Stashed changes
 
 .dog-type-l {
-  background-position: -10px 0px;
-}
+  background-position: -10px 0px; }
 
 .dog-type-l {
-  background-image: url(../images/sprite-dog-large.png);
-}
+  background-image: url(../images/sprite-dog-large.png); }
 
 .dog-type-s {
-  background-image: url(../images/sprite-dog-small.png);
-}
+  background-image: url(../images/sprite-dog-small.png); }
 
 .cat-type-m {
-  background-image: url(../images/sprite-cat-small.png);
-}
+  background-image: url(../images/sprite-cat-small.png); }
 
 .hit .dog-type-l {
-  background-position: -132px 0px;
-}
+  background-position: -132px 0px; }
 
 .hit .dog-type-s {
-  background-position: -121px 0px;
-}
+  background-position: -121px 0px; }
 
 .hit .cat-type-m {
-  background-position: -120px 0px;
-}
+  background-position: -120px 0px; }
 
 .kill .dog-type-l,
 .kill .dog-type-s,
 .kill .cat-type-m {
-  background-position: -245px 0px;
-}
+  background-position: -245px 0px; }
 
 .save .dog-type-l {
-  background-position: -355px 0px;
-}
+  background-position: -355px 0px; }
 
 .save .dog-type-s {
-  background-position: -350px 0px;
-}
+  background-position: -350px 0px; }
 
 .save .cat-type-m {
-  background-position: -347px 0px;
-}
+  background-position: -347px 0px; }
 
 .saved .dog-type-l {
-  background-position: -475px 0px;
-}
+  background-position: -475px 0px; }
 
 .saved .dog-type-s {
-  background-position: -470px 0px;
-}
+  background-position: -470px 0px; }
 
 .saved .cat-type-m {
-  background-position: -464px 0px;
-}
+  background-position: -464px 0px; }
 
 .hit-targets {
+<<<<<<< Updated upstream
   width: auto;
   outline: 1px solid pink !important;
 }
@@ -267,11 +441,25 @@ body {
   display: none;
   z-index: 0;
 }
+=======
+  width: auto; }
+  .hit-targets > .img {
+    position: absolute;
+    min-width: 100px;
+    min-height: 100px;
+    background-repeat: no-repeat;
+    background-size: 602px 100px; }
+  .hit-targets > .img.on {
+    display: block;
+    z-index: 100; }
+  .hit-targets > .img.off {
+    display: none;
+    z-index: 0; }
+>>>>>>> Stashed changes
 
 .hit-targets:before {
   content: attr(name) "";
-  font-size: 10px;
-}
+  font-size: 10px; }
 
 .location-dumpster {
   width: 15%;
@@ -280,8 +468,12 @@ body {
   top: 25.7%;
   right: 0;
   bottom: 0;
+<<<<<<< Updated upstream
   left: 20%;
 }
+=======
+  left: 10%; }
+>>>>>>> Stashed changes
 
 .location-trashcan1 {
   width: 15%;
@@ -290,8 +482,12 @@ body {
   top: 24.5%;
   right: 0;
   bottom: 0;
+<<<<<<< Updated upstream
   left: 53%;
 }
+=======
+  left: 59%; }
+>>>>>>> Stashed changes
 
 .location-trashcan2 {
   width: 15%;
@@ -300,8 +496,12 @@ body {
   top: 21.3%;
   right: 0;
   bottom: 0;
+<<<<<<< Updated upstream
   left: 66%;
 }
+=======
+  left: 69%; }
+>>>>>>> Stashed changes
 
 .location-bag {
   width: 15%;
@@ -310,8 +510,12 @@ body {
   top: 39%;
   right: 0;
   bottom: 0;
+<<<<<<< Updated upstream
   left: 49%;
 }
+=======
+  left: 35%; }
+>>>>>>> Stashed changes
 
 .location-manhole {
   width: 15%;
@@ -330,5 +534,11 @@ body {
   top: 33%;
   right: 0;
   bottom: 0;
+<<<<<<< Updated upstream
   left: 80%;
 }
+=======
+  left: 70%; }
+
+/*# sourceMappingURL=custom.css.map */
+>>>>>>> Stashed changes
