@@ -10,7 +10,6 @@ $("#startkilling").click(function() {
 	$(".frame.kill-commissioner").css("display", "none");
 	$(".frame.play-active").css("display", "block");
 });
-
 $("#savePets").click(function() {
 	$(".frame.start-screen").css("display", "none");
 	$(".frame.save-pets").css("display", "block");
