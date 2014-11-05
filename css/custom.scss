@@ -1,6 +1,6 @@
 @import 'bourbon/dist/_bourbon.scss';
 ::selection,
-img::selection {background-color: none;}
+img::selection {background-color: transparent; color: none;}
 $lb-w: 1020px;
 $lb-h: (($lb-w / 4) * 3);
 @mixin test($color1, $color2) {
@@ -22,7 +22,7 @@ html, body {width: 100%; height: 100%;}
 body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 #main-frame {
 	// Remove when done testing
-	@include test(white, red);
+	// @include test(white, red);
 	background-color: #CCC;
 	width: $lb-w;
 	height: $lb-h;
@@ -35,8 +35,8 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 	width: 100%;
 	height: 100%;
 	display: none;
-	background-color:#921A1D;
-	text-align:center;
+	background-color: #921A1D;
+	text-align: center;
 	> div {
 		position: absolute;
 		min-width: 100px;
@@ -50,9 +50,9 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 		padding: 10px 15px;
 		background-color: #ffffff;
 		color:#921A1D;
-		-moz-border-radius: 10px;
-    	-webkit-border-radius: 10px;
-    	border-radius: 10px;
+		outline: none;
+		@include border-top-radius(10px);
+		@include border-bottom-radius(10px);
     	border:none;
 	}
 	button:hover{
@@ -66,46 +66,60 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 }
 .frame.active {display: block;}
 // Splash Screen
-
-@import 'frames.scss'
+@import 'frames.scss';
 
 // Main Menu
 #game-menu {
 	width: 100%;
 	min-height: 0 !important;
 	z-index: 10;
+	font-family: Veneer-Three;
 	> table > tr > td {
 		padding: 10px;
 	}
 	td {font-size: 24px; text-align: center; vertical-align: middle;}
-	// Remove when done testing
 	#pointCounterTable {
-		width: 300px;
+		// width: 300px;
+		margin-top: 24px;
 		margin-left: 15px;
-		td {padding: 5px;}
-		#pointCount {text-align: right;}
+		td {
+			padding: 4px;
+			font-size: 1.5em;
+			color: #FFF;
+		}
+		#pointCount {text-align: right; color: #E1CD6C;}
 		#pointMax {text-align: left;}
 	}
-	@include test(darkgray, white);
+	#gameTimer {
+		font-size: 35px;
+		color: #E1CD6C;
+		text-align: right;
+		padding-top: 24px;
+		padding-right: 24px;
+	}
 }
-.game-icon {width: 100px; height: 50px;}
+.game-icon {width: 67px; height: 50px; margin-top: 22px; margin-left: 20px;}
 .game-type-save {background-image: url(http://placehold.it/100x50/&text=Save);}
-.game-type-kill {background-image: url(http://placehold.it/100x50/&text=Kill);}
+.game-type-kill {
+	background: url(../images/icon-death.png) no-repeat;
+	background-position: center;
+}
+/* */
 
 // Background Scene Only
 #background-scene {
 	position: relative;
 	width: 100%; height: 100%;
 	z-index: 1;
-	@include test(blue, black);
-	background: url(../images/bg-template.jpg) no-repeat;
+	//@include test(blue, black);
+	background: url(../images/bg.jpg) no-repeat;
 	background-size: 1020px ;
 	> div {
 		position: absolute;
-		opacity: 0.3;
-		outline: 1px solid pink;
 	}
-	> div.environment-items {background-size: contain;}
+	> div.environment-items {
+		background-size: contain;
+	}
 	// Background Dimensions and Positions
 	.environment-transhcan1 {
 		@include wh-percent(23.6%, 30.7%);
@@ -137,13 +151,6 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 		@include position( absolute, 46.9% auto auto 73.9% );
 		background: url(../images/e-cardboardBox.png) no-repeat;
 	}
-	// Remove when done testing
-	.environment-dumpster:before {content: 'dumpster';}
-	.environment-transhcan1:before {content: 'transhcan1';}
-	.environment-transhcan2:before {content: 'transhcan2';}
-	.environment-bag:before {content: 'bag';}
-	.environment-manhole:before {content: 'manhole';}
-	.environment-cardboardBox:before {content: 'cardboardbox';}
 }
 // Target Assets
 .dog-type-s,
@@ -152,6 +159,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 .dog-type-l {background-image: url(../images/sprite-dog-large.png);}
 .dog-type-s {background-image: url(../images/sprite-dog-small.png);}
 .cat-type-m {background-image: url(../images/sprite-cat-small.png);}
+
 
 .hit .dog-type-l {background-position: -132px 0px;}
 .hit .dog-type-s {background-position: -121px 0px;}
@@ -164,22 +172,38 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 .save .dog-type-l {background-position: -355px 0px;}
 .save .dog-type-s {background-position: -350px 0px;}
 .save .cat-type-m {background-position: -347px 0px;}
+.save .com-type-m {background-image: url(../images/sprite-coin.png);}
 
 .saved .dog-type-l {background-position: -475px 0px;}
 .saved .dog-type-s {background-position: -470px 0px;}
 .saved .cat-type-m {background-position: -464px 0px;}
 	// .dog-type-m {background-image: url(http://placehold.it/100x100/&text=dog-s);}
 	// .com-type-m {background-image: url(http://placehold.it/100x100/&text=comm);}
+
+.com-type-m[data-varComm="1"] {background-position: 0px 0px;}
+.com-type-m[data-varComm="2"] {background-position: -99px 0px;}
+.com-type-m[data-varComm="3"] {background-position: -198px 0px;}
+.com-type-m[data-varComm="4"] {background-position: -297px 0px;}
+.com-type-m[data-varComm="5"] {background-position: -396px 0px;}
+.com-type-m[data-varComm="6"] {background-position: -495px 0px;}
+.com-type-m[data-varComm="7"] {background-position: -594px 0px;}
+.com-type-m[data-varComm="8"] {background-position: -693px 0px;}
+.com-type-m[data-varComm="9"] {background-position: -792px 0px;}
+
 // Target Locations
 .hit-targets {
-	width: auto;
-	outline: 1px solid pink !important;
+	@include wh-percent(11.2%, 14%);
+	@include test(white, red);
+	@include transform-origin(center bottom);
+	@include transform( scale(1.55) );
+	z-index: 100;
 	> .img {
 		position: absolute;
 		min-width: 100px;
 		min-height: 100px;
 		background-repeat: no-repeat;
 		background-size: 602px 100px;
+		bottom: 0;
 	}
 	> .img.on {
 		display: block;
@@ -189,34 +213,39 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 		display: none;
 		z-index: 0;
 	}
+	.img.com-type-m {display: none;}
 }
+.hit-targets.save {
+	.img.com-type-m {
+		display: block;
+		width: 91%;
+		background-size: 889px 97px;
+	}
+}
+
 .hit-targets:before {
 	content: attr(name) '';
 	font-size: 10px;
+	color: #fff;
+	text-shadow: 1px 1px 0px #000;
 }
 .location-dumpster {
-	@include wh-percent(15%, 15%);
-	@include position(absolute, 25.7% 0 0 20%);
+	@include position(absolute, 26.7% 0 0 20.4%);
 }
 .location-trashcan1 {
-	@include wh-percent(15%, 15%);
-	@include position(absolute, 24.5% 0 0 53%);
+	@include position(absolute, 25.6% 0 0 52%);
 }
 .location-trashcan2 {
-	@include wh-percent(15%, 15%);
-	@include position(absolute, 21.3% 0 0 66%);
+	@include position(absolute, 22.5% 0 0 64%);
 }
 .location-bag {
-	@include wh-percent(15%, 15%);
-	@include position(absolute, 39% 0 0 49%);
+	@include position(absolute, 39.7% 0 0 48.5%);
 }
 .location-manhole {
-	@include wh-percent(15%, 15%);
-	@include position(absolute, 68% 0 0 73%);
+	@include position(absolute, 69.1% 0 0 73.2%);
 }
 .location-cardboardBox {
-	@include wh-percent(20%, 20%);
-	@include position(absolute, 33% 0 0 80%);
+	@include position(absolute, 34.6% 0 0 78%);
 }
 
 

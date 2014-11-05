@@ -1,24 +1,24 @@
 $("#killPets").click(function() {
-	$(".frame.start-screen").css("display", "none");
-	$(".frame.kill-pets").css("display", "block");
+	$(".frame.start-screen").removeClass("active");
+	$(".frame.kill-pets").addClass("active");
 });
 $("#killPetsNext").click(function() {
-	$(".frame.kill-pets").css("display", "none");
-	$(".frame.kill-commissioner").css("display", "block");
+	$(".frame.kill-pets").removeClass("active");
+	$(".frame.kill-commissioner").addClass("active");
 });
 $("#startkilling").click(function() {
-	$(".frame.kill-commissioner").css("display", "none");
-	$(".frame.play-active").css("display", "block");
+	$(".frame.kill-commissioner").removeClass("active");
+	$(".frame.play-active").addClass("active");
 });
 $("#savePets").click(function() {
-	$(".frame.start-screen").css("display", "none");
-	$(".frame.save-pets").css("display", "block");
+	$(".frame.start-screen").removeClass("active");
+	$(".frame.save-pets").addClass("active");
 });
 $("#savePetsNext").click(function() {
-	$(".frame.save-pets").css("display", "none");
-	$(".frame.save-commissioner").css("display", "block");
+	$(".frame.save-pets").removeClass("active");
+	$(".frame.save-commissioner").addClass("active");
 });
 $("#startsaving").click(function() {
-	$(".frame.save-commissioner").css("display", "none");
-	$(".frame.play-active").css("display", "block");
+	$(".frame.save-commissioner").removeClass("active");
+	$(".frame.play-active").addClass("active");
 });

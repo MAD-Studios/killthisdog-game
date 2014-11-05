@@ -1,5 +1,5 @@
-.frame.start-screen{
-	display:block;
+.start-screen {
+	// display:block;
 	background-color:#921A1D;
 	text-align:center;
 	> div {
@@ -30,8 +30,19 @@
 		margin-top: -20px;
 	}
 }
+.start-screen.active {
+	.headline-pic > img {
+		@include animation( whackEmAll 1.0s ease-in-out );
+		@include animation-iteration-count( infinite );
+	}
+}
+@include keyframes( whackEmAll ) {
+	0%	{@include transform(scale( 0.99 ));}
+	50%	{@include transform(scale( 1.01 ));}
+	100%{@include transform(scale( 0.99 ));}
+};
 
-.frame.kill-pets, .frame.save-pets{
+.kill-pets, .save-pets{
 	> div {
 		position: relative;
 	}
@@ -67,7 +78,7 @@
 	}
 }
 
-.frame.kill-commissioner, .frame.save-commissioner{
+.kill-commissioner, .save-commissioner{
 	> div {
 		position: relative;
 	}
@@ -90,7 +101,7 @@
 	}
 }
 
-.frame.kill-score, .frame.save-score{
+.kill-score, .save-score{
 	> div {
 		position: relative;
 	}
@@ -126,7 +137,7 @@
 	}
 }
 
-.frame.share{
+.share{
 	> div {
 		position: relative;
 	}
