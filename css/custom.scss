@@ -1,4 +1,7 @@
 @import 'bourbon/dist/_bourbon.scss';
+// Splash Screen
+@import 'frames.scss';
+
 ::selection,
 img::selection {background-color: transparent; color: none;}
 $lb-w: 1020px;
@@ -65,8 +68,6 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 
 }
 .frame.active {display: block;}
-// Splash Screen
-@import 'frames.scss';
 
 // Main Menu
 #game-menu {
@@ -213,7 +214,6 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 		display: none;
 		z-index: 0;
 	}
-	.img.com-type-m {display: none;}
 }
 .hit-targets.save {
 	.img.com-type-m {
