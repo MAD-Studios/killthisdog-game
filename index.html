@@ -15,7 +15,11 @@
         <link rel="stylesheet" type="text/css" href="css/main.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.plugin.js"></script> 
+        <script src="js/vendor/jquery.countdown.js"></script>
+        <script src="js/vendor/ion.sound.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -197,10 +201,11 @@
                                     </tr>
                                 </table>
                             </td>
-                            <td width="15%" id="gameTimer">00:00</td>
+                            <td width="15%" id="gameTimer">01:30</td>
                         </tr>
                     </table>
                 </div>
+                <div id="gameCountdown"></div>
                 <!-- Background Scene Only -->
                 <div id="background-scene">
                     <div class="environment-dumpster environment-items"></div>
@@ -311,6 +316,9 @@
 
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/counter.js"></script>
+        <script src="js/sounds.js"></script>
+
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

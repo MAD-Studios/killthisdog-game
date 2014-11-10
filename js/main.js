@@ -22,3 +22,11 @@ $("#startsaving").click(function() {
 	$(".frame.save-commissioner").removeClass("active");
 	$(".frame.play-active").addClass("active");
 });
+
+$( document ).ready(function() {
+	var counter = new Counter('countdown');
+	var sound = new Sound();
+	$('.com-type-m').click(function(){
+		sound.playSound("beer_can_opening");
+	})
+});
