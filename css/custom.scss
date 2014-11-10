@@ -207,7 +207,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 	@include test(white, red);
 	@include transform-origin(center bottom);
 	@include transform( scale(1.55) );
-	z-index: 100;
+	z-index: 1000;
 	> .img {
 		position: absolute;
 		min-width: 100px;
@@ -287,7 +287,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
    100%   {background-position: 0px 0;}
 }
 
-.dog-type-l{
+.dog-type-l.on{
 	 /* Chrome, Safari, Opera */
     -webkit-animation-name: animationDogTypeL;
     -webkit-animation-duration: 2s;
@@ -295,7 +295,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
     animation-name: animationDogTypeL;
     animation-duration: 2s;
 }
-.dog-type-s{
+.dog-type-s.on{
 	 /* Chrome, Safari, Opera */
     -webkit-animation-name: animationDogTypeS;
     -webkit-animation-duration: 2s;
@@ -303,7 +303,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
     animation-name: animationDogTypeS;
     animation-duration: 2s;
 }
-.cat-type-m{
+.cat-type-m.on{
 	 /* Chrome, Safari, Opera */
     -webkit-animation-name: animationCatTypeM;
     -webkit-animation-duration: 2s;

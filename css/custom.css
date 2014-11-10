@@ -433,7 +433,7 @@ body {
   -ms-transform: scale(1.55);
   -o-transform: scale(1.55);
   transform: scale(1.55);
-  z-index: 100; }
+  z-index: 1000; }
   .hit-targets > .img {
     position: absolute;
     min-width: 100px;
@@ -534,7 +534,7 @@ body {
     background-position: 0px 59px; }
   100% {
     background-position: 0px 0; } }
-.dog-type-l {
+.dog-type-l.on {
   /* Chrome, Safari, Opera */
   -webkit-animation-name: animationDogTypeL;
   -webkit-animation-duration: 2s;
@@ -542,7 +542,7 @@ body {
   animation-name: animationDogTypeL;
   animation-duration: 2s; }
 
-.dog-type-s {
+.dog-type-s.on {
   /* Chrome, Safari, Opera */
   -webkit-animation-name: animationDogTypeS;
   -webkit-animation-duration: 2s;
@@ -550,7 +550,7 @@ body {
   animation-name: animationDogTypeS;
   animation-duration: 2s; }
 
-.cat-type-m {
+.cat-type-m.on {
   /* Chrome, Safari, Opera */
   -webkit-animation-name: animationCatTypeM;
   -webkit-animation-duration: 2s;

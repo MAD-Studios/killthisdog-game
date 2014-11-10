@@ -192,7 +192,7 @@
                                         <td>
                                             <table border="0" cellspacing="0" cellpadding="0" id="pointCounterTable">
                                                 <tr>
-                                                    <td id="pointCount">2,145</td>
+                                                    <td id="pointCount">0</td>
                                                     <td>/</td>
                                                     <td id="pointMax">20,000</td>
                                                 </tr>
@@ -218,24 +218,42 @@
                 <!-- .hit-targets can be inactive or active for point collection -->
                 <div class="hit-targets inactive location-dumpster" name="dumpster-target">
                     <!-- tap the target and grab the value img with the 'on' class name -->
-                    <div class="img dog-type-l on" data-scoreVal="10"></div>
-                    <div class="img dog-type-s on" data-scoreVal="50"></div>
-                    <div class="img cat-type-m on" data-scoreVal="100"></div>
-                    <div class="img com-type-m on" data-scoreVal="1000" data-varComm="1"></div>
+                    <div class="img dog-type-l on" id="test" data-scoreVal="10"></div>
+                    <div class="img dog-type-s off" data-scoreVal="50"></div>
+                    <div class="img cat-type-m off" data-scoreVal="100"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="1"></div>
                 </div>
                 <div class="hit-targets inactive location-trashcan1" name="trashcan1-target">
-                    <div class="img dog-type-l on" data-scoreVal="10"></div>
-                    <div class="img dog-type-s on" data-scoreVal="50"></div>
+                    <div class="img dog-type-l off" data-scoreVal="10"></div>
+                    <div class="img dog-type-s off" data-scoreVal="50"></div>
                     <div class="img cat-type-m on" data-scoreVal="100"></div>
-                    <div class="img com-type-m on" data-scoreVal="1000" data-varComm="2"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="2"></div>
                 </div>
                 <div class="hit-targets inactive location-trashcan2" name="trashcan2-target">
-                    <div class="img dog-type-l on" data-scoreVal="10"></div>
+                    <div class="img dog-type-l off" data-scoreVal="10"></div>
                     <div class="img dog-type-s on" data-scoreVal="50"></div>
-                    <div class="img cat-type-m on" data-scoreVal="100"></div>
-                    <div class="img com-type-m on" data-scoreVal="1000" data-varComm="3"></div>
+                    <div class="img cat-type-m off" data-scoreVal="100"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="3"></div>
                 </div>
-                <div class="hit-targets inactive location-bag saved" name="bag-target">
+                 <div class="hit-targets inactive location-bag" name="bag-target">
+                    <div class="img dog-type-l off" data-scoreVal="10"></div>
+                    <div class="img dog-type-s on" data-scoreVal="50"></div>
+                    <div class="img cat-type-m off" data-scoreVal="100"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="4"></div>
+                </div>
+                <div class="hit-targets inactive location-manhole" name="manhole-target">
+                    <div class="img dog-type-l on" data-scoreVal="10"></div>
+                    <div class="img dog-type-s off" data-scoreVal="50"></div>
+                    <div class="img cat-type-m off" data-scoreVal="100"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="5"></div>
+                </div>
+                <div class="hit-targets inactive location-cardboardBox" name="cardboardBox-target">
+                    <div class="img dog-type-l off" data-scoreVal="10"></div>
+                    <div class="img dog-type-s off" data-scoreVal="50"></div>
+                    <div class="img cat-type-m on" data-scoreVal="100"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="6"></div>
+                </div>
+                <!--<div class="hit-targets inactive location-bag saved" name="bag-target">
                     <div class="img dog-type-l on" data-scoreVal="10"></div>
                     <div class="img dog-type-s on" data-scoreVal="50"></div>
                     <div class="img cat-type-m on" data-scoreVal="100"></div>
@@ -252,7 +270,7 @@
                     <div class="img dog-type-s on" data-scoreVal="50"></div>
                     <div class="img cat-type-m on" data-scoreVal="100"></div>
                     <div class="img com-type-m on" data-scoreVal="1000" data-varComm="6"></div>
-                </div>
+                </div>-->
             </div>
             
             <!-- Add an 'active' class to show -->
