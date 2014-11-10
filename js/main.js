@@ -24,7 +24,7 @@ $("#startsaving").click(function() {
 });
 
 $( document ).ready(function() {
-	var counter = new Counter('countdown');
+	//var counter = new Counter('countdown');
 	var sound = new Sound();
 	$('.com-type-m').click(function(){
 		sound.playSound("beer_can_opening");

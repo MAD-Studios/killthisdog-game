@@ -501,4 +501,61 @@ body {
   bottom: 0;
   left: 78%; }
 
+/* ---------------- Animations --------------------- */
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animationDogTypeL {
+  0% {
+    background-position: -10px 67px; }
+  100% {
+    background-position: -10px 0; } }
+@-webkit-keyframes animationDogTypeS {
+  0% {
+    background-position: 0px 49px; }
+  100% {
+    background-position: 0px 0; } }
+@-webkit-keyframes animationCatTypeM {
+  0% {
+    background-position: 0px 59px; }
+  100% {
+    background-position: 0px 0; } }
+/* Standard syntax */
+@keyframes animationDogTypeL {
+  0% {
+    background-position: -10px 67px; }
+  100% {
+    background-position: -10px 0; } }
+@keyframes animationDogTypeS {
+  0% {
+    background-position: 0px 49px; }
+  100% {
+    background-position: 0px 0; } }
+@keyframes animationCatTypeM {
+  0% {
+    background-position: 0px 59px; }
+  100% {
+    background-position: 0px 0; } }
+.dog-type-l {
+  /* Chrome, Safari, Opera */
+  -webkit-animation-name: animationDogTypeL;
+  -webkit-animation-duration: 2s;
+  /* Standard syntax */
+  animation-name: animationDogTypeL;
+  animation-duration: 2s; }
+
+.dog-type-s {
+  /* Chrome, Safari, Opera */
+  -webkit-animation-name: animationDogTypeS;
+  -webkit-animation-duration: 2s;
+  /* Standard syntax */
+  animation-name: animationDogTypeS;
+  animation-duration: 2s; }
+
+.cat-type-m {
+  /* Chrome, Safari, Opera */
+  -webkit-animation-name: animationCatTypeM;
+  -webkit-animation-duration: 2s;
+  /* Standard syntax */
+  animation-name: animationCatTypeM;
+  animation-duration: 2s; }
+
 /*# sourceMappingURL=custom.css.map */
