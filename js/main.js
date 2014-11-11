@@ -24,11 +24,15 @@ $("#startsaving").click(function() {
 });
 
 var sound = new Sound();
-$('.com-type-m').click(function(){
-	sound.playSound("beer_can_opening");
-});
 
 $( document ).ready(function() {
+
+	$(".hit-targets.location-dumpster").css("pointer-events","none");
+	$(".hit-targets.location-trashcan1").css("pointer-events","none");
+	$(".hit-targets.location-trashcan2").css("pointer-events","none");
+	$(".hit-targets.location-bag").css("pointer-events","none");
+	$(".hit-targets.location-manhole").css("pointer-events","none");
+	$(".hit-targets.location-cardboardBox").css("pointer-events","none");
 
 	var random = Math.ceil(Math.random() * 5);
 	setTimeout(function() {
@@ -74,7 +78,7 @@ function hit(hitArea, type, state){
     			$(".hit-targets" + hitArea + " div").removeClass("on");
     			$(".hit-targets" + hitArea + " div").addClass("off");
     			createNewPet(".hit-targets" + hitArea);
-    			$(".hit-targets" + hitArea).css("pointer-events","auto");
+    			//$(".hit-targets" + hitArea).css("pointer-events","auto");
 			}, 1000);
 		}, 1000);
 	}
@@ -89,14 +93,26 @@ function createNewPet(hitArea){
 	    case 1:
 	        $(hitArea + " div.dog-type-l").removeClass("off");
 	    	$(hitArea + " div.dog-type-l").addClass("on");
+	    	//$(".hit-targets" + hitArea).css("pointer-events","none");
+	    	setTimeout(function() {
+    			$(".hit-targets" + hitArea).css("pointer-events","auto");
+			}, 2000);
 	        break;
 	    case 2:
 	        $(hitArea + " div.dog-type-s").removeClass("off");
 	    	$(hitArea + " div.dog-type-s").addClass("on");
+	    	//$(".hit-targets" + hitArea).css("pointer-events","none");
+	    	setTimeout(function() {
+    			$(".hit-targets" + hitArea).css("pointer-events","auto");
+			}, 2000);
 	        break;
 	    case 3:
 	        $(hitArea + " div.cat-type-m").removeClass("off");
 	    	$(hitArea + " div.cat-type-m").addClass("on");
+	    	//$(".hit-targets" + hitArea).css("pointer-events","none");
+	    	setTimeout(function() {
+    			$(".hit-targets" + hitArea).css("pointer-events","auto");
+			}, 2000);
 	        break;
 	    default:
 	        break;
@@ -107,21 +123,27 @@ function createNewPet(hitArea){
 
 $(".hit-targets.location-dumpster").click(function() {
 	hit(".location-dumpster", "hit", "kill");
+	sound.playSound("metal_plate");
 });
 $(".hit-targets.location-trashcan1").click(function() {
 	hit(".location-trashcan1", "hit", "kill");
+	sound.playSound("metal_plate");
 });
 $(".hit-targets.location-trashcan2").click(function() {
 	hit(".location-trashcan2", "hit", "kill");
+	sound.playSound("metal_plate");
 });
 $(".hit-targets.location-bag").click(function() {
 	hit(".location-bag", "hit", "kill");
+	sound.playSound("metal_plate");
 });
 $(".hit-targets.location-manhole").click(function() {
 	hit(".location-manhole", "hit", "kill");
+	sound.playSound("metal_plate");
 });
 $(".hit-targets.location-cardboardBox").click(function() {
 	hit(".location-cardboardBox", "hit", "kill");
+	sound.playSound("metal_plate");
 });
 
 
