@@ -1,102 +1,112 @@
-.frame.start-screen {
-  display: block;
+.start-screen {
   background-color: #921A1D;
   text-align: center; }
-  .frame.start-screen > div {
+  .start-screen > div {
     position: relative; }
-  .frame.start-screen .headline-pic {
+  .start-screen .headline-pic {
     padding-top: 50px; }
-    .frame.start-screen .headline-pic img {
+    .start-screen .headline-pic img {
       width: 90%; }
-  .frame.start-screen .subheadline {
+  .start-screen .subheadline {
     width: 60%;
     padding-top: 30px;
     font-family: Arial, sans-serif;
     font-size: 2em;
     color: #82CCB6;
     margin: 0 auto; }
-  .frame.start-screen .subheadline2 {
+  .start-screen .subheadline2 {
     padding-top: 10px;
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 1.6em;
     color: #FFFFFF; }
-  .frame.start-screen .button-wrapper {
+  .start-screen .button-wrapper {
     margin-top: -20px; }
 
-.frame.kill-pets > div, .frame.save-pets > div {
-  position: relative; }
-.frame.kill-pets .headline, .frame.save-pets .headline {
+/*.start-screen.active {
+	.headline-pic > img {
+		@include animation( whackEmAll 1.0s ease-in-out );
+		@include animation-iteration-count( infinite );
+	}
+}
+@include keyframes( whackEmAll ) {
+	0%	{@include transform(scale( 0.99 ));}
+	50%	{@include transform(scale( 1.01 ));}
+	100%{@include transform(scale( 0.99 ));}
+};*/
+.frame.kill-pets > div, .save-pets > div {
+  position: relative !important; }
+.frame.kill-pets .headline, .save-pets .headline {
   padding-top: 60px;
   font-family: Veneer-Three;
   font-size: 4em;
   color: #ffffff; }
-.frame.kill-pets .subheadline, .frame.save-pets .subheadline {
+.frame.kill-pets .subheadline, .save-pets .subheadline {
   width: 50%;
   font-family: Arial, sans-serif;
   font-size: 2em;
   color: #ffffff;
   margin: 0 auto; }
-.frame.kill-pets .instruction-points, .frame.save-pets .instruction-points {
+.frame.kill-pets .instruction-points, .save-pets .instruction-points {
   font-family: Veneer-Three; }
-  .frame.kill-pets .instruction-points > div, .frame.save-pets .instruction-points > div {
+  .frame.kill-pets .instruction-points > div, .save-pets .instruction-points > div {
     display: inline-block; }
-  .frame.kill-pets .instruction-points div, .frame.save-pets .instruction-points div {
+  .frame.kill-pets .instruction-points div, .save-pets .instruction-points div {
     color: #ffffff;
     font-size: 1.2em; }
-  .frame.kill-pets .instruction-points .points, .frame.save-pets .instruction-points .points {
+  .frame.kill-pets .instruction-points .points, .save-pets .instruction-points .points {
     color: #82CCB6;
     font-size: 2em; }
-.frame.kill-pets .button-wrapper, .frame.save-pets .button-wrapper {
+.frame.kill-pets .button-wrapper, .save-pets .button-wrapper {
   margin-top: 50px; }
 
-.frame.kill-commissioner > div, .frame.save-commissioner > div {
+.kill-commissioner > div, .save-commissioner > div {
   position: relative; }
-.frame.kill-commissioner .subheadline, .frame.save-commissioner .subheadline {
+.kill-commissioner .subheadline, .save-commissioner .subheadline {
   font-family: Veneer-Three;
   font-size: 4em;
   color: #ffffff;
   margin: 0 auto; }
-.frame.kill-commissioner .subheadline2, .frame.save-commissioner .subheadline2 {
+.kill-commissioner .subheadline2, .save-commissioner .subheadline2 {
   width: 60%;
   font-family: Arial, sans-serif;
   font-size: 2em;
   color: #ffffff;
   margin: 0 auto; }
-.frame.kill-commissioner .button-wrapper, .frame.save-commissioner .button-wrapper {
+.kill-commissioner .button-wrapper, .save-commissioner .button-wrapper {
   margin-top: 50px; }
 
-.frame.kill-score > div, .frame.save-score > div {
+.kill-score > div, .save-score > div {
   position: relative; }
-.frame.kill-score .headline, .frame.save-score .headline {
+.kill-score .headline, .save-score .headline {
   padding-top: 150px;
   font-family: Arial, sans-serif;
   font-size: 3em;
   color: #ffffff; }
-.frame.kill-score .score, .frame.save-score .score {
+.kill-score .score, .save-score .score {
   margin-top: -40px;
   margin-bottom: 10px;
   font-family: Veneer-Three;
   font-size: 6em;
   color: #ffffff; }
-.frame.kill-score .subheadline, .frame.save-score .subheadline {
+.kill-score .subheadline, .save-score .subheadline {
   width: 50%;
   font-family: Arial, sans-serif;
   font-size: 2em;
   color: #ffffff;
   margin: 0 auto; }
-.frame.kill-score .subheadline2, .frame.save-score .subheadline2 {
+.kill-score .subheadline2, .save-score .subheadline2 {
   width: 80%;
   font-family: Arial, sans-serif;
   font-size: 2em;
   color: #82CCB6;
   margin: 0 auto; }
-.frame.kill-score .button-wrapper, .frame.save-score .button-wrapper {
+.kill-score .button-wrapper, .save-score .button-wrapper {
   margin-top: 30px; }
 
-.frame.share > div {
+.share > div {
   position: relative; }
-.frame.share .bodytext {
+.share .bodytext {
   width: 75%;
   line-height: 1.6em;
   padding-top: 100px;
@@ -105,9 +115,9 @@
   font-size: 1.3em;
   color: #ffffff;
   margin: 0px auto; }
-.frame.share .learn-more {
+.share .learn-more {
   margin-top: 50px; }
-.frame.share .button-wrapper {
+.share .button-wrapper {
   margin-top: 50px; }
 
 .col-4 {

@@ -1,6 +1,5 @@
 @import 'bourbon/dist/_bourbon.scss';
 // Splash Screen
-@import 'frames.scss';
 
 ::selection,
 img::selection {background-color: transparent; color: none;}
@@ -311,5 +310,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
     animation-name: animationCatTypeM;
     animation-duration: 2s;
 }
+
+@import 'frames.scss';
 
 

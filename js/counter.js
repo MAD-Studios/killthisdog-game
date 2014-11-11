@@ -2,9 +2,11 @@ function Counter(mode){
 	var counter = new Date(); 
 	var counter_help = new Date();
 
+	$('#gameCountdown').css("display", "block");
+
 	if(mode=='timer'){
-		counter.setMinutes(counter.getMinutes() + 1);
-		counter.setSeconds(counter.getSeconds() + 30);
+		counter.setMinutes(counter.getMinutes() + 0);
+		counter.setSeconds(counter.getSeconds() + 10);
 		$('#gameTimer').countdown({compact:true, until: counter, format: 'MS', onExpiry: timeOff}); 
 	}else{
 		counter.setSeconds(counter.getSeconds() + 3);
@@ -15,14 +17,26 @@ function Counter(mode){
 }
 
 function timeOff() { 
-    $(".frame.play-active").removeClass("active");
-	$(".frame.kill-score").addClass("active");
+	endGame();
+	setTimeout(function() {
+		$(".frame.play-active").removeClass("active");
+		if(mode == 'kill'){
+						$(".frame.kill-score").addClass("active");
+					}else{
+						$(".frame.save-score").addClass("active");
+					}
+		$('#gameCountdown').countdown('destroy');
+		$('#gameTimer').countdown('destroy');
+	}, 1000);
+	
+	//$(".frame.kill-score").addClass("active");
+	
 }
 
 function countdownOff() { 
 	$('#gameCountdown').html('GO');
 	setTimeout(function() {
-    	$('#gameCountdown').remove();
+		$('#gameCountdown').css("display", "none");
 	}, 1000);
 
 	var timer = new Counter('timer');

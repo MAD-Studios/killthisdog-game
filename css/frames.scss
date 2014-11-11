@@ -1,5 +1,4 @@
 .start-screen {
-	// display:block;
 	background-color:#921A1D;
 	text-align:center;
 	> div {
@@ -44,7 +43,7 @@
 
 .kill-pets, .save-pets{
 	> div {
-		position: relative;
+		position: relative !important;
 	}
 	.headline{
 		padding-top: 60px;
