@@ -16,13 +16,7 @@ var randomTrashcan2;
 var randomBag;
 var randomManhole;
 var randomCardboardBox;
-
-var appearTimeDumpster;
-var appearTimeTrashcan1;
-var appearTimeTrashcan2;
-var appearTimeBag;
-var appearTimeManhole;
-var appearTimeCardboardBox;
+var dumpster;
 
 $("#killPets").click(function() {
 	mode = 'kill';
@@ -87,7 +81,11 @@ function startGame(){
 	setTimeout(function() {
 		var random = Math.ceil(Math.random() * 5);
 		setTimeout(function() {
-			createNewPet(".location-dumpster");
+			//createNewPet(".location-dumpster");
+			dumpster = new Dumpster();
+			dumpster.createPet();
+			dumpster.destroyPet();
+
 		}, random*1000);
 
 		var random2 = Math.ceil(Math.random() * 5);
@@ -166,7 +164,7 @@ function endGame(){
 
 function hitPet(offset){
 	
-	console.log(offset);
+	//console.log(offset);
 
 }
 
@@ -306,7 +304,7 @@ function createNewPet(hitArea){
 		var random = Math.ceil(Math.random() * 3);
 		switch(random) {
 	    case 1:
-	    	console.log($(hitArea + " div.dog-type-l"));
+	    	//console.log($(hitArea + " div.dog-type-l"));
 	        $(hitArea + " div.dog-type-l").removeClass("off");
 	    	$(hitArea + " div.dog-type-l").addClass("on");
 	    	var appearTime = Math.ceil(Math.random() * 3);
@@ -323,7 +321,7 @@ function createNewPet(hitArea){
 			}, 2000); //animation time
 	        break;
 	    case 2:
-	    	console.log($(hitArea + " div.dog-type-s"));
+	    	//console.log($(hitArea + " div.dog-type-s"));
 	        $(hitArea + " div.dog-type-s").removeClass("off");
 	    	$(hitArea + " div.dog-type-s").addClass("on");
 	    	var appearTime = Math.ceil(Math.random() * 2);
@@ -340,7 +338,7 @@ function createNewPet(hitArea){
 			}, 2000); //animation time
 	        break;
 	    case 3:
-	    	console.log($(hitArea + " div.cat-type-m"));
+	    	//console.log($(hitArea + " div.cat-type-m"));
 	        $(hitArea + " div.cat-type-m").removeClass("off");
 	    	$(hitArea + " div.cat-type-m").addClass("on");
 	    	var appearTime = Math.ceil(Math.random() * 2)-0.5;

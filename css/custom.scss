@@ -164,7 +164,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 }
 // Target Assets
 .dog-type-s,
-.cat-type-m {background-position: 0px 0px;}
+.cat-type-m {background-position: -12px 0px;}
 .dog-type-l {background-position: -10px 0px;}
 .dog-type-l {background-image: url(../images/sprite-dog-large.png);}
 .dog-type-s {background-image: url(../images/sprite-dog-small.png);}
@@ -172,33 +172,33 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 
 
 .hit .dog-type-l {background-position: -132px 0px;}
-.hit .dog-type-s {background-position: -121px 0px;}
-.hit .cat-type-m {background-position: -120px 0px;}
+.hit .dog-type-s {background-position: -133px 0px;}
+.hit .cat-type-m {background-position: -132px 0px;}
 
 .kill .dog-type-l,
 .kill .dog-type-s,
-.kill .cat-type-m {background-position: -245px 0px;}
+.kill .cat-type-m {background-position: -257px 0px;}
 
-.save .dog-type-l {background-position: -355px 0px;}
-.save .dog-type-s {background-position: -350px 0px;}
-.save .cat-type-m {background-position: -347px 0px;}
+.save .dog-type-l {background-position: -356px 0px;}
+.save .dog-type-s {background-position: -361px 0px;}
+.save .cat-type-m {background-position: -358px 0px;}
 .save .com-type-m {background-image: url(../images/sprite-coin.png);}
 
-.saved .dog-type-l {background-position: -475px 0px;}
-.saved .dog-type-s {background-position: -470px 0px;}
-.saved .cat-type-m {background-position: -464px 0px;}
+.saved .dog-type-l {background-position: -477px 0px;}
+.saved .dog-type-s {background-position: -482px 0px;}
+.saved .cat-type-m {background-position: -476px 0px;}
 	// .dog-type-m {background-image: url(http://placehold.it/100x100/&text=dog-s);}
 	// .com-type-m {background-image: url(http://placehold.it/100x100/&text=comm);}
 
-.com-type-m[data-varComm="1"] {background-position: 0px 0px;}
-.com-type-m[data-varComm="2"] {background-position: -99px 0px;}
-.com-type-m[data-varComm="3"] {background-position: -198px 0px;}
-.com-type-m[data-varComm="4"] {background-position: -297px 0px;}
-.com-type-m[data-varComm="5"] {background-position: -396px 0px;}
-.com-type-m[data-varComm="6"] {background-position: -495px 0px;}
-.com-type-m[data-varComm="7"] {background-position: -594px 0px;}
-.com-type-m[data-varComm="8"] {background-position: -693px 0px;}
-.com-type-m[data-varComm="9"] {background-position: -792px 0px;}
+.com-type-m[data-varComm="1"] {background-position: -100px 0px;}
+.com-type-m[data-varComm="2"] {background-position: -199px 0px;}
+.com-type-m[data-varComm="3"] {background-position: -298px 0px;}
+.com-type-m[data-varComm="4"] {background-position: -397px 0px;}
+.com-type-m[data-varComm="5"] {background-position: -496px 0px;}
+.com-type-m[data-varComm="6"] {background-position: -595px 0px;}
+.com-type-m[data-varComm="7"] {background-position: -694px 0px;}
+.com-type-m[data-varComm="8"] {background-position: -793px 0px;}
+.com-type-m[data-varComm="9"] {background-position: -892px 0px;}
 
 // Target Locations
 .hit-targets {
@@ -232,29 +232,37 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 	}
 }
 
-.hit-targets:before {
+.hit, .kill, .save, .saved{
+	pointer-events:none;
+}
+
+.hit-targets{
+	pointer-events:none;
+}
+
+/*.hit-targets:before {
 	content: attr(name) '';
 	font-size: 10px;
 	color: #fff;
 	text-shadow: 1px 1px 0px #000;
-}
+}*/
 .location-dumpster {
 	@include position(absolute, 26.7% 0 0 20.4%);
 }
 .location-trashcan1 {
-	@include position(absolute, 25.6% 0 0 52%);
+	@include position(absolute, 25.6% 0 0 54%);
 }
 .location-trashcan2 {
-	@include position(absolute, 22.5% 0 0 64%);
+	@include position(absolute, 22.5% 0 0 66%);
 }
 .location-bag {
-	@include position(absolute, 39.7% 0 0 48.5%);
+	@include position(absolute, 40% 0 0 52%);
 }
 .location-manhole {
-	@include position(absolute, 69.1% 0 0 73.2%);
+	@include position(absolute, 69.1% 0 0 74%);
 }
 .location-cardboardBox {
-	@include position(absolute, 34.6% 0 0 78%);
+	@include position(absolute, 34.6% 0 0 80%);
 }
 
 /* ---------------- Animations --------------------- */
@@ -265,12 +273,16 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
     100%   {background-position:-10px 0;}
 }
 @-webkit-keyframes animationDogTypeS {
-	0%   {background-position:	0px 49px;}
-    100%   {background-position: 0px 0;}
+	0%   {background-position:	-12px 49px;}
+    100%   {background-position: -12px 0;}
 }
 @-webkit-keyframes animationCatTypeM {
-	0%   {background-position:	0px 59px;}
-    100%   {background-position: 0px 0;}
+	0%   {background-position:	-12px 59px;}
+    100%   {background-position: -12px 0;}
+}
+@-webkit-keyframes animationCoin {
+	0%   {background-position: -100px 0px; opacity:1;}
+    100%   {background-position: -100px -30px; opacity:0;}
 }
 /* Standard syntax */
 @keyframes animationDogTypeL {
@@ -278,12 +290,12 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
    100%   {background-position:-10px 0;}
 }
 @keyframes animationDogTypeS {
-   0%   {background-position:	0px 49px;}
-   100%   {background-position: 0px 0;}
+   0%   {background-position:	-12px 49px;}
+   100%   {background-position: -12px 0;}
 }
 @keyframes animationCatTypeM {
-   0%   {background-position:	0px 59px;}
-   100%   {background-position: 0px 0;}
+   0%   {background-position:	-12px 59px;}
+   100%   {background-position: -12px 0;}
 }
 
 .dog-type-l.on{
@@ -309,6 +321,15 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
     /* Standard syntax */
     animation-name: animationCatTypeM;
     animation-duration: 2s;
+}
+
+.save .com-type-m{
+	 /* Chrome, Safari, Opera */
+    -webkit-animation-name: animationCoin;
+    -webkit-animation-duration: 1s;
+    /* Standard syntax */
+    animation-name: animationCoin;
+    animation-duration: 1s;
 }
 
 @import 'frames.scss';

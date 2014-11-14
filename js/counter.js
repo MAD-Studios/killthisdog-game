@@ -5,8 +5,8 @@ function Counter(mode){
 	$('#gameCountdown').css("display", "block");
 
 	if(mode=='timer'){
-		counter.setMinutes(counter.getMinutes() + 0);
-		counter.setSeconds(counter.getSeconds() + 10);
+		counter.setMinutes(counter.getMinutes() + 1);
+		counter.setSeconds(counter.getSeconds() + 30);
 		$('#gameTimer').countdown({compact:true, until: counter, format: 'MS', onExpiry: timeOff}); 
 	}else{
 		counter.setSeconds(counter.getSeconds() + 3);
@@ -27,7 +27,7 @@ function timeOff() {
 					}
 		$('#gameCountdown').countdown('destroy');
 		$('#gameTimer').countdown('destroy');
-	}, 1000);
+	}, 2000);
 	
 	//$(".frame.kill-score").addClass("active");
 	
