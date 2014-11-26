@@ -166,29 +166,29 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 .dog-type-s,
 .cat-type-m {background-position: -12px 0px;}
 .dog-type-l {background-position: -10px 0px;}
-.dog-type-l {background-image: url(../images/sprite-dog-large.png);}
-.dog-type-s {background-image: url(../images/sprite-dog-small.png);}
-.cat-type-m {background-image: url(../images/sprite-cat-small.png);}
+.dog-type-l, 
+.hit-dog-type-l {background-image: url(../images/sprite-dog-large.png);}
+.dog-type-s, 
+.hit-dog-type-s {background-image: url(../images/sprite-dog-small.png);}
+.cat-type-m, 
+.hit-cat-type-m {background-image: url(../images/sprite-cat-small.png);}
 
+.hit .hit-dog-type-l {background-position: -132px 0px;}
+.hit .hit-dog-type-s {background-position: -133px 0px;}
+.hit .hit-cat-type-m {background-position: -132px 0px;}
 
-.hit .dog-type-l {background-position: -132px 0px;}
-.hit .dog-type-s {background-position: -133px 0px;}
-.hit .cat-type-m {background-position: -132px 0px;}
+.kill .hit-dog-type-l,
+.kill .hit-dog-type-s,
+.kill .hit-cat-type-m {background-position: -257px 0px;}
 
-.kill .dog-type-l,
-.kill .dog-type-s,
-.kill .cat-type-m {background-position: -257px 0px;}
+.save .hit-dog-type-l {background-position: -356px 0px;}
+.save .hit-dog-type-s {background-position: -361px 0px;}
+.save .hit-cat-type-m {background-position: -358px 0px;}
+.save .hit-com-type-m {background-image: url(../images/sprite-coin.png);}
 
-.save .dog-type-l {background-position: -356px 0px;}
-.save .dog-type-s {background-position: -361px 0px;}
-.save .cat-type-m {background-position: -358px 0px;}
-.save .com-type-m {background-image: url(../images/sprite-coin.png);}
-
-.saved .dog-type-l {background-position: -477px 0px;}
-.saved .dog-type-s {background-position: -482px 0px;}
-.saved .cat-type-m {background-position: -476px 0px;}
-	// .dog-type-m {background-image: url(http://placehold.it/100x100/&text=dog-s);}
-	// .com-type-m {background-image: url(http://placehold.it/100x100/&text=comm);}
+.saved .hit-dog-type-l {background-position: -477px 0px;}
+.saved .hit-dog-type-s {background-position: -482px 0px;}
+.saved .hit-cat-type-m {background-position: -476px 0px;}
 
 .com-type-m[data-varComm="1"] {background-position: -100px 0px;}
 .com-type-m[data-varComm="2"] {background-position: -199px 0px;}
@@ -199,6 +199,20 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 .com-type-m[data-varComm="7"] {background-position: -694px 0px;}
 .com-type-m[data-varComm="8"] {background-position: -793px 0px;}
 .com-type-m[data-varComm="9"] {background-position: -892px 0px;}
+
+.img.hit-type{
+	position: absolute;
+	top: 0px;
+	left:0px;
+	z-index:1000;
+	width:100px;
+}
+.hit-type.on{
+	display:block;
+}
+.hit-type.off{
+	display:none;
+}
 
 // Target Locations
 .hit-targets {
@@ -236,9 +250,9 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 	pointer-events:none;
 }
 
-.hit-targets{
+/*.hit-targets{
 	pointer-events:none;
-}
+}*/
 
 /*.hit-targets:before {
 	content: attr(name) '';
@@ -281,9 +295,14 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
     100%   {background-position: -12px 0;}
 }
 @-webkit-keyframes animationCoin {
-	0%   {background-position: -100px 0px; opacity:1;}
-    100%   {background-position: -100px -30px; opacity:0;}
+	0%   {background-position: -100px 0px;}
+    100%   {background-position: -100px -30px;}
 }
+@-webkit-keyframes animationHitObject {
+	0%   {background-position: -100px 0px;}
+    100%   {background-position: -100px -30px;}
+}
+
 /* Standard syntax */
 @keyframes animationDogTypeL {
    0%   {background-position:	-10px 67px;}
@@ -296,6 +315,10 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 @keyframes animationCatTypeM {
    0%   {background-position:	-12px 59px;}
    100%   {background-position: -12px 0;}
+}
+@keyframes animationCoin {
+	0%   {background-position: -100px 0px; opacity:1;}
+    100%   {background-position: -100px -30px; opacity:0;}
 }
 
 .dog-type-l.on{

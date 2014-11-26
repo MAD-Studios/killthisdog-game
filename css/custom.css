@@ -183,48 +183,51 @@ body {
 .dog-type-l {
   background-position: -10px 0px; }
 
-.dog-type-l {
+.dog-type-l,
+.hit-dog-type-l {
   background-image: url(../images/sprite-dog-large.png); }
 
-.dog-type-s {
+.dog-type-s,
+.hit-dog-type-s {
   background-image: url(../images/sprite-dog-small.png); }
 
-.cat-type-m {
+.cat-type-m,
+.hit-cat-type-m {
   background-image: url(../images/sprite-cat-small.png); }
 
-.hit .dog-type-l {
+.hit .hit-dog-type-l {
   background-position: -132px 0px; }
 
-.hit .dog-type-s {
+.hit .hit-dog-type-s {
   background-position: -133px 0px; }
 
-.hit .cat-type-m {
+.hit .hit-cat-type-m {
   background-position: -132px 0px; }
 
-.kill .dog-type-l,
-.kill .dog-type-s,
-.kill .cat-type-m {
+.kill .hit-dog-type-l,
+.kill .hit-dog-type-s,
+.kill .hit-cat-type-m {
   background-position: -257px 0px; }
 
-.save .dog-type-l {
+.save .hit-dog-type-l {
   background-position: -356px 0px; }
 
-.save .dog-type-s {
+.save .hit-dog-type-s {
   background-position: -361px 0px; }
 
-.save .cat-type-m {
+.save .hit-cat-type-m {
   background-position: -358px 0px; }
 
-.save .com-type-m {
+.save .hit-com-type-m {
   background-image: url(../images/sprite-coin.png); }
 
-.saved .dog-type-l {
+.saved .hit-dog-type-l {
   background-position: -477px 0px; }
 
-.saved .dog-type-s {
+.saved .hit-dog-type-s {
   background-position: -482px 0px; }
 
-.saved .cat-type-m {
+.saved .hit-cat-type-m {
   background-position: -476px 0px; }
 
 .com-type-m[data-varComm="1"] {
@@ -253,6 +256,19 @@ body {
 
 .com-type-m[data-varComm="9"] {
   background-position: -892px 0px; }
+
+.img.hit-type {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  width: 100px; }
+
+.hit-type.on {
+  display: block; }
+
+.hit-type.off {
+  display: none; }
 
 .hit-targets {
   width: 11.2%;
@@ -290,9 +306,9 @@ body {
 .hit, .kill, .save, .saved {
   pointer-events: none; }
 
-.hit-targets {
-  pointer-events: none; }
-
+/*.hit-targets{
+	pointer-events:none;
+}*/
 /*.hit-targets:before {
 	content: attr(name) '';
 	font-size: 10px;
@@ -360,11 +376,14 @@ body {
     background-position: -12px 0; } }
 @-webkit-keyframes animationCoin {
   0% {
-    background-position: -100px 0px;
-    opacity: 1; }
+    background-position: -100px 0px; }
   100% {
-    background-position: -100px -30px;
-    opacity: 0; } }
+    background-position: -100px -30px; } }
+@-webkit-keyframes animationHitObject {
+  0% {
+    background-position: -100px 0px; }
+  100% {
+    background-position: -100px -30px; } }
 /* Standard syntax */
 @keyframes animationDogTypeL {
   0% {
@@ -381,6 +400,13 @@ body {
     background-position: -12px 59px; }
   100% {
     background-position: -12px 0; } }
+@keyframes animationCoin {
+  0% {
+    background-position: -100px 0px;
+    opacity: 1; }
+  100% {
+    background-position: -100px -30px;
+    opacity: 0; } }
 .dog-type-l.on {
   /* Chrome, Safari, Opera */
   -webkit-animation-name: animationDogTypeL;

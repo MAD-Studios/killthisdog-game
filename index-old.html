@@ -216,13 +216,50 @@
                     <div class="environment-manhole environment-items"></div>
                     <div class="environment-cardboardBox environment-items"></div>
                 </div>
-                
-                <div class="hit-targets location-dumpster" name="dumpster-target"></div>
-                <div class="hit-targets location-bag" name="bag-target"></div>
-                <div class="hit-targets location-trashcan1" name="trashcan1-target"></div>
-                <div class="hit-targets location-trashcan2" name="trashcan2-target"></div>
-                <div class="hit-targets location-manhole" name="manhole-target"></div>
-                <div class="hit-targets location-cardboardBox" name="cardboardBox-target"></div>
+                <!-- .hit-targets can be inactive or active for point collection -->
+                <div class="hit-targets inactive location-dumpster" name="dumpster-target">
+                    <!-- tap the target and grab the value img with the 'on' class name -->
+                    <!-- old values
+                        dog-type-l  10
+                        dog-type-s  50
+                        cat-type-m  100
+                     -->
+                    <div class="img dog-type-l off" data-scoreVal="100"></div>
+                    <div class="img dog-type-s off" data-scoreVal="200"></div>
+                    <div class="img cat-type-m off" data-scoreVal="300"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="1"></div>
+                </div>
+                <div class="hit-targets inactive location-trashcan1" name="trashcan1-target">
+                    <div class="img dog-type-l off" data-scoreVal="100"></div>
+                    <div class="img dog-type-s off" data-scoreVal="200"></div>
+                    <div class="img cat-type-m off" data-scoreVal="300"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="2"></div>
+                </div>
+                <div class="hit-targets inactive location-trashcan2" name="trashcan2-target">
+                    <div class="img dog-type-l off" data-scoreVal="100"></div>
+                    <div class="img dog-type-s off" data-scoreVal="200"></div>
+                    <div class="img cat-type-m off" data-scoreVal="300"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="3"></div>
+                </div>
+                <div class="hit-targets inactive location-bag" name="bag-target">
+                    <div class="img dog-type-l off" data-scoreVal="100"></div>
+                    <div class="img dog-type-s off" data-scoreVal="200"></div>
+                    <div class="img cat-type-m off" data-scoreVal="300"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="4"></div>
+                </div>
+                <div class="hit-targets inactive location-manhole" name="manhole-target">
+                    <div class="img dog-type-l off" data-scoreVal="100"></div>
+                    <div class="img dog-type-s off" data-scoreVal="200"></div>
+                    <div class="img cat-type-m off" data-scoreVal="300"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="5"></div>
+                </div>
+                <div class="hit-targets inactive location-cardboardBox" name="cardboardBox-target">
+                    <div class="img dog-type-l off" data-scoreVal="100"></div>
+                    <div class="img dog-type-s off" data-scoreVal="200"></div>
+                    <div class="img cat-type-m off" data-scoreVal="300"></div>
+                    <div class="img com-type-m off" data-scoreVal="1000" data-varComm="6"></div>
+                </div>
+
 
                 <img src="images/coin-sg.png" class="location-dumpster img hit-type off"/>
                 <img src="images/coin-sg.png" class="location-trashcan1 img hit-type off"/>
@@ -230,7 +267,24 @@
                 <img src="images/coin-sg.png" class="location-bag img hit-type off"/>
                 <img src="images/coin-sg.png" class="location-manhole img hit-type off"/>
                 <img src="images/coin-sg.png" class="location-cardboardBox img hit-type off"/>
-
+                <!--<div class="hit-targets inactive location-bag saved" name="bag-target">
+                    <div class="img dog-type-l on" data-scoreVal="10"></div>
+                    <div class="img dog-type-s on" data-scoreVal="50"></div>
+                    <div class="img cat-type-m on" data-scoreVal="100"></div>
+                    <div class="img com-type-m on" data-scoreVal="1000" data-varComm="4"></div>
+                </div>
+                <div class="hit-targets inactive location-manhole save" name="manhole-target">
+                    <div class="img dog-type-l on" data-scoreVal="10"></div>
+                    <div class="img dog-type-s on" data-scoreVal="50"></div>
+                    <div class="img cat-type-m on" data-scoreVal="100"></div>
+                    <div class="img com-type-m on" data-scoreVal="1000" data-varComm="5"></div>
+                </div>
+                <div class="hit-targets inactive location-cardboardBox saved" name="cardboardBox-target">
+                    <div class="img dog-type-l on" data-scoreVal="10"></div>
+                    <div class="img dog-type-s on" data-scoreVal="50"></div>
+                    <div class="img cat-type-m on" data-scoreVal="100"></div>
+                    <div class="img com-type-m on" data-scoreVal="1000" data-varComm="6"></div>
+                </div>-->
             </div>
             
             <!-- Add an 'active' class to show -->
@@ -296,7 +350,11 @@
         <script src="js/plugins.js"></script>
         <script src="js/counter.js"></script>
         <script src="js/sounds.js"></script>
-        <script src="js/game.js"></script>
+        <!--<script src="js/gobalFunctions.js"></script>
+        <script src="js/pet.js"></script>
+        <script src="js/dumpster.js"></script>
+        <script src="js/game.js"></script>-->
+        <script src="js/main.js"></script>
 
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
