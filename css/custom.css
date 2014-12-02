@@ -262,7 +262,11 @@ body {
   top: 0px;
   left: 0px;
   z-index: 1000;
-  width: 100px; }
+  width: 100px;
+  height: 100px; }
+  .img.hit-type img {
+    width: 100%;
+    border: 1px solid red; }
 
 .hit-type.on {
   display: block; }

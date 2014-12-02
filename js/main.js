@@ -296,8 +296,7 @@ function hit(hitArea, type, state, offset){
 	    			console.log("create Pet at: " + hitArea + " after hit");
 	    			createNewPet(hitArea);
 				}, 1000);
-    		}
-    		
+    		}	
 		}, 1000);
 	}
 }
@@ -443,7 +442,7 @@ function createNewPet(hitArea){
 		    				createNewPet(hitArea);
 		    			}
 					}, appearTime*1000); //time large dog appears; 1-3 seconds
-				}, 2000); //animation time
+				}, 2000); //animation timeout
 		        break;
 		    case 2:
 		    	setPetType(hitArea, 1);
@@ -504,7 +503,7 @@ $(".hit-targets.location-dumpster div").click(function(e) {
 	$( ".location-dumpster.img.hit-type" ).animate({
 	    left: "-=200",
 	    top: "-=100"
-	  }, 300, function() {
+	}, 300, function() {
 	    $( ".location-dumpster.img.hit-type" ).removeClass("on");
 		$( ".location-dumpster.img.hit-type" ).addClass("off");
 		hit(".location-dumpster", hitType, hitType2);

@@ -44,7 +44,7 @@ $("#killPetsNext").click(function() {
 $("#startkilling").click(function() {
 	$(".frame.kill-commissioner").removeClass("active");
 	$(".frame.play-active").addClass("active");
-	setHitObject("shuffle");
+	setHitObject("shovel");
 	startGame();
 });
 $("#savePets").click(function() {
@@ -61,7 +61,7 @@ $("#savePetsNext").click(function() {
 $("#startsaving").click(function() {
 	$(".frame.save-commissioner").removeClass("active");
 	$(".frame.play-active").addClass("active");
-	setHitObject("cutter");
+	setHitObject("scissor");
 	startGame();
 });
 $("#killScore").click(function() {
@@ -81,6 +81,7 @@ $("#playAgain").click(function() {
 
 function setHitObject(hitObject){
 	$(".img.hit-type").addClass(hitObject);
+	$(".img.hit-type").append("<img src=\"images/cursor_" + hitObject + ".png\" />");
 }
 
 function startGame(){
@@ -300,7 +301,7 @@ function playSound(hitArea){
 				sound.playSound("metal_plate");
 				sound.playSound("blood8");
 			} else if(trashcan2PetType == 1){
-				sound.playSound("metal1");
+					sound.playSound("metal1");
 				sound.playSound("blood3");
 			} else if(trashcan2PetType == 2){
 				sound.playSound("metal2");
@@ -359,26 +360,26 @@ function hit(hitArea, type, state, offset){
 	playSound(hitArea);
 
 	var petType;
-	if($(hitArea + " div").hasClass("dog-type-l")){
+	if($(".hit-targets" + hitArea + " div").hasClass("dog-type-l")){
 		petType = 0;
-	}else if($(hitArea + " div").hasClass("dog-type-s")){
+	}else if($(".hit-targets" + hitArea + " div").hasClass("dog-type-s")){
 		petType = 1;
-	}else if($(hitArea + " div").hasClass("cat-type-m")){
+	}else if($(".hit-targets" + hitArea + " div").hasClass("cat-type-m")){
 		petType = 2;
 	}
 
 	switch(petType){
 		case 0:
-			$(hitArea).children("div").remove();
-			$(hitArea).append("<div class=\"img hit-dog-type-l hit-score\" data-scoreVal=\"100\"></div>");
+			$(".hit-targets" + hitArea).children("div").remove();
+			$(".hit-targets" + hitArea).append("<div class=\"img hit-dog-type-l hit-score\" data-scoreVal=\"100\"></div>");
 			break;
 		case 1:
-			$(hitArea).children("div").remove();
-			$(hitArea).append("<div class=\"img hit-dog-type-s hit-score\" data-scoreVal=\"200\"></div>");
+			$(".hit-targets" + hitArea).children("div").remove();
+			$(".hit-targets" + hitArea).append("<div class=\"img hit-dog-type-s hit-score\" data-scoreVal=\"200\"></div>");
 			break;
 		case 2:
-			$(hitArea).children("div").remove();
-			$(hitArea).append("<div class=\"img hit-cat-type-m hit-score\" data-scoreVal=\"300\"></div>");
+			$(".hit-targets" + hitArea).children("div").remove();
+			$(".hit-targets" + hitArea).append("<div class=\"img hit-cat-type-m hit-score\" data-scoreVal=\"300\"></div>");
 			break;
 		default:
 			break;
@@ -413,7 +414,7 @@ function hit(hitArea, type, state, offset){
 			}
 			setTimeout(function() {
     			$(".hit-targets" + hitArea).removeClass(state);
-    			$(hitArea).children("div").remove();
+    			$(".hit-targets" + hitArea).children("div").remove();
     			resetHitVariable(hitArea)
     			createNewPet(hitArea);
     			$(".hit-targets" + hitArea).css("pointer-events","auto");
@@ -460,12 +461,12 @@ function createNewPet(hitArea){
 		switch(random) {
 		// large dog
 	    case 1:
-	        $(hitArea).append("<div class=\"img dog-type-l on\" data-scoreVal=\"100\"></div>");
+	        $(".hit-targets" + hitArea).append("<div class=\"img dog-type-l on\" data-scoreVal=\"100\"></div>");
 	        setPetType(hitArea, 0);
 	    	var appearTime = Math.ceil(Math.random() * 3);
 			setTimeout(function() {
 				if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
-					$(hitArea).children("div").remove();
+					$(".hit-targets" + hitArea).children("div").remove();
     				createNewPet(hitArea);
     			}
     			resetControlVariable(hitArea);
@@ -473,29 +474,29 @@ function createNewPet(hitArea){
 	        break;
 	    // small dog
 	    case 2:
-	    	$(hitArea).append("<div class=\"img dog-type-s on\" data-scoreVal=\"200\"></div>");
+	    	$(".hit-targets" + hitArea).append("<div class=\"img dog-type-s on\" data-scoreVal=\"200\"></div>");
 	    	var appearTime = Math.ceil(Math.random() * 2);
 	    	setPetType(hitArea, 1);
 			setTimeout(function() {
 				if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
-					$(hitArea).children("div").remove();
+					$(".hit-targets" + hitArea).children("div").remove();
     				createNewPet(hitArea);
     			}
     			resetControlVariable(hitArea);
-			}, appearTime*1000 + 2000); //time large dog appears; 1-3 seconds
+			}, appearTime*1000 + 2000); //time small dog appears; 1-2 seconds
 	        break;
 	    // cat
 	    case 3:
-	    	$(hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"300\"></div>");
+	    	$(".hit-targets" + hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"300\"></div>");
 	    	setPetType(hitArea, 2);
 	    	var appearTime = Math.ceil(Math.random() * 2)-0.5;
 			setTimeout(function() {
 				if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
-					$(hitArea).children("div").remove();
+					$(".hit-targets" + hitArea).children("div").remove();
     				createNewPet(hitArea);
     			}
     			resetControlVariable(hitArea);
-			}, appearTime*1000 + 2000); //time large dog appears; 1-3 seconds
+			}, appearTime*1000 + 2000); //time cat appears; 1-1.5 seconds
 	        break;
 	    default:
 	        break;
@@ -506,7 +507,7 @@ function createNewPet(hitArea){
 $(".hit-targets.location-dumpster").on("click", "div", function(e) {
 	$(".hit-targets.location-dumpster").css("pointer-events","none"); //prevent multiple actions on one pet at one location
 
-	$( ".location-dumpster.img.hit-type" ).css({"left":e.pageX,"top":e.pageY+20})
+	$( ".location-dumpster.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + 200 - 10,"top":e.pageY + $(".play-active").offset().top + 100 - 20});
 	$( ".location-dumpster.img.hit-type" ).removeClass("off");
 	$( ".location-dumpster.img.hit-type" ).addClass("on");
 	$( ".location-dumpster.img.hit-type" ).animate({
@@ -523,7 +524,7 @@ $(".hit-targets.location-dumpster").on("click", "div", function(e) {
 $(".hit-targets.location-trashcan1").on("click", "div", function(e) {
 	$(".hit-targets.location-trashcan1").css("pointer-events","none"); //prevent multiple actions on one pet at one location
 
-	$( ".location-trashcan1.img.hit-type" ).css({"left":e.pageX,"top":e.pageY+20})
+	$( ".location-trashcan1.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + 200 - 10,"top":e.pageY + $(".play-active").offset().top + 100 - 20});
 	$( ".location-trashcan1.img.hit-type" ).removeClass("off");
 	$( ".location-trashcan1.img.hit-type" ).addClass("on");
 	$( ".location-trashcan1.img.hit-type" ).animate({
@@ -540,7 +541,7 @@ $(".hit-targets.location-trashcan1").on("click", "div", function(e) {
 $(".hit-targets.location-trashcan2").on("click", "div", function(e) {
 	$(".hit-targets.location-trashcan2").css("pointer-events","none"); //prevent multiple actions on one pet at one location
 
-	$( ".location-trashcan2.img.hit-type" ).css({"left":e.pageX,"top":e.pageY+20})
+	$( ".location-trashcan2.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + 200 - 10,"top":e.pageY + $(".play-active").offset().top + 100 - 20});
 	$( ".location-trashcan2.img.hit-type" ).removeClass("off");
 	$( ".location-trashcan2.img.hit-type" ).addClass("on");
 	$( ".location-trashcan2.img.hit-type" ).animate({
@@ -557,7 +558,7 @@ $(".hit-targets.location-trashcan2").on("click", "div", function(e) {
 $(".hit-targets.location-bag").on("click", "div", function(e) {
 	$(".hit-targets.location-bag").css("pointer-events","none"); //prevent multiple actions on one pet at one location
 
-	$( ".location-bag.img.hit-type" ).css({"left":e.pageX,"top":e.pageY+20})
+	$( ".location-bag.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + 200 - 10,"top":e.pageY + $(".play-active").offset().top + 100 - 20});
 	$( ".location-bag.img.hit-type" ).removeClass("off");
 	$( ".location-bag.img.hit-type" ).addClass("on");
 	$( ".location-bag.img.hit-type" ).animate({
@@ -574,7 +575,7 @@ $(".hit-targets.location-bag").on("click", "div", function(e) {
 $(".hit-targets.location-manhole").on("click", "div", function(e) {
 	$(".hit-targets.location-manhole").css("pointer-events","none"); //prevent multiple actions on one pet at one location
 
-	$( ".location-manhole.img.hit-type" ).css({"left":e.pageX,"top":e.pageY+20})
+	$( ".location-manhole.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + 200 - 10,"top":e.pageY + $(".play-active").offset().top + 100 - 20});
 	$( ".location-manhole.img.hit-type" ).removeClass("off");
 	$( ".location-manhole.img.hit-type" ).addClass("on");
 	$( ".location-manhole.img.hit-type" ).animate({
@@ -591,7 +592,7 @@ $(".hit-targets.location-manhole").on("click", "div", function(e) {
 $(".hit-targets.location-cardboardBox").on("click", "div", function(e) {
 	$(".hit-targets.location-cardboardBox").css("pointer-events","none"); //prevent multiple actions on one pet at one location
 
-	$( ".location-cardboardBox.img.hit-type" ).css({"left":e.pageX,"top":e.pageY+20})
+	$( ".location-cardboardBox.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + 200 - 10,"top":e.pageY + $(".play-active").offset().top + 100 - 20});
 	$( ".location-cardboardBox.img.hit-type" ).removeClass("off");
 	$( ".location-cardboardBox.img.hit-type" ).addClass("on");
 	$( ".location-cardboardBox.img.hit-type" ).animate({

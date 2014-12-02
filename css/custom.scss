@@ -206,6 +206,12 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 	left:0px;
 	z-index:1000;
 	width:100px;
+	height:100px;
+
+	img{
+		width: 100%;
+		border: 1px solid red;
+	}
 }
 .hit-type.on{
 	display:block;
