@@ -1,7 +1,6 @@
 function Counter(mode){
 	var counter = new Date(); 
-	var counter_help = new Date();
-
+	
 	$('#gameCountdown').css("display", "block");
 
 	if(mode=='timer'){
@@ -12,8 +11,6 @@ function Counter(mode){
 		counter.setSeconds(counter.getSeconds() + 3);
 		$('#gameCountdown').countdown({compact:true, until: counter, format: 'S', expiryText: '', onExpiry: countdownOff});
 	}
-
-	
 }
 
 function timeOff() { 

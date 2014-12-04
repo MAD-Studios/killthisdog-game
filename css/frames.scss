@@ -1,3 +1,15 @@
+.loading-screen {
+	> div {
+		position: relative;
+	}
+	.headline{
+		padding-top: 300px;
+		font-family: Veneer-Three;
+		font-size: 5em;
+		color: #ffffff;
+		margin:0 auto;
+	}	
+}
 .start-screen {
 	background-color:#921A1D;
 	text-align:center;

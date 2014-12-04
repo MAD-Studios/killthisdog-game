@@ -1,3 +1,11 @@
+.loading-screen > div {
+  position: relative; }
+.loading-screen .headline {
+  font-family: Veneer-Three;
+  font-size: 2em;
+  color: #ffffff;
+  margin: 0 auto; }
+
 .start-screen {
   background-color: #921A1D;
   text-align: center; }
@@ -23,41 +31,35 @@
   .start-screen .button-wrapper {
     margin-top: -20px; }
 
-/*.start-screen.active {
-	.headline-pic > img {
-		@include animation( whackEmAll 1.0s ease-in-out );
-		@include animation-iteration-count( infinite );
-	}
-}
-@include keyframes( whackEmAll ) {
+/*@include keyframes( whackEmAll ) {
 	0%	{@include transform(scale( 0.99 ));}
 	50%	{@include transform(scale( 1.01 ));}
 	100%{@include transform(scale( 0.99 ));}
 };*/
-.frame.kill-pets > div, .save-pets > div {
+.kill-pets > div, .save-pets > div {
   position: relative !important; }
-.frame.kill-pets .headline, .save-pets .headline {
+.kill-pets .headline, .save-pets .headline {
   padding-top: 60px;
   font-family: Veneer-Three;
   font-size: 4em;
   color: #ffffff; }
-.frame.kill-pets .subheadline, .save-pets .subheadline {
+.kill-pets .subheadline, .save-pets .subheadline {
   width: 50%;
   font-family: Arial, sans-serif;
   font-size: 2em;
   color: #ffffff;
   margin: 0 auto; }
-.frame.kill-pets .instruction-points, .save-pets .instruction-points {
+.kill-pets .instruction-points, .save-pets .instruction-points {
   font-family: Veneer-Three; }
-  .frame.kill-pets .instruction-points > div, .save-pets .instruction-points > div {
+  .kill-pets .instruction-points > div, .save-pets .instruction-points > div {
     display: inline-block; }
-  .frame.kill-pets .instruction-points div, .save-pets .instruction-points div {
+  .kill-pets .instruction-points div, .save-pets .instruction-points div {
     color: #ffffff;
     font-size: 1.2em; }
-  .frame.kill-pets .instruction-points .points, .save-pets .instruction-points .points {
+  .kill-pets .instruction-points .points, .save-pets .instruction-points .points {
     color: #82CCB6;
     font-size: 2em; }
-.frame.kill-pets .button-wrapper, .save-pets .button-wrapper {
+.kill-pets .button-wrapper, .save-pets .button-wrapper {
   margin-top: 50px; }
 
 .kill-commissioner > div, .save-commissioner > div {

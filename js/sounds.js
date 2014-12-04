@@ -119,6 +119,18 @@ function Sound(){
                 volume: 0.5
             },
             {
+                name: "dog_big",
+                volume: 0.5
+            },
+            {
+                name: "dog_small",
+                volume: 0.5
+            },
+            {
+                name: "chop-multiple",
+                volume: 0.5
+            },
+            {
                 name: "chop",
                 volume: 0.5
             },
@@ -152,7 +164,7 @@ function Sound(){
             },
             {
                 name: "trumpet",
-                volume: 0.5
+                volume: 0.8
             },
             {
                 name: "voice_hurt",

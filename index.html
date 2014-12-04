@@ -19,8 +19,11 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery.plugin.js"></script> 
+        <script type="text/javascript" src="js/vendor/preloadjs-0.4.1.min.js"></script> 
         <script src="js/vendor/jquery.countdown.js"></script>
         <script src="js/vendor/ion.sound.min.js"></script>
+        <script src="js/preload.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -30,6 +33,11 @@
             <!-- MENU SCREEN -->
             
             <!-- Add an 'active' class to show -->
+            <section class="frame loading-screen ">
+               <div class="headline">
+                    LOADING ...
+                </div> 
+            </section>
             <section class="frame start-screen active">
                <div class="headline-pic">
                     <img draggable="false" src="images/screens/titlepage-txt-whackem_all.png">
@@ -216,6 +224,7 @@
                     <div class="environment-manhole environment-items"></div>
                     <div class="environment-cardboardBox environment-items"></div>
                 </div>
+
                 
                 <div class="hit-targets location-dumpster" name="dumpster-target"></div>
                 <div class="hit-targets location-bag" name="bag-target"></div>
@@ -290,7 +299,7 @@
         </div>
 
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
-        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
         <script src="js/plugins.js"></script>
@@ -299,7 +308,7 @@
         <script src="js/game.js"></script>
 
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -308,5 +317,6 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
+        -->
     </body>
 </html>
