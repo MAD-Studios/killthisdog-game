@@ -20,20 +20,24 @@ http://killthisdog.com/game-preview
 
 <p>Requirements</p>
 <ul>
-	<li>Sound Object</li>
-	<li>CSS Animations
+	<li>Sound Object
 		<ul>
-			<li>Make the pets pop up when children tags inside the hit-targets contains the classname "on"</li>
+		<li>Add coin noises</li>
 		</ul>
 	</li>
-	<li>Timer Component
+	<li>CSS Animations
 		<ul>
-			<li>A timer that changes in duration depending on dog view-time. Small dogs and cats should appear for less time.</li>
+		<li>Make the coin hits animation.</li>
 		</ul>
 	</li>
 	<li>Countdown to Begin Game
 		<ul>
-			<li>Style the PLAY SCREEN with a countdown as to when the game begins. 3, 2, 1, Go!!! (or even 'Kill')</li>
+		<li>Style the PLAY SCREEN with a countdown as to when the game begins. 3, 2, 1, Go!!! (or even 'Kill')</li>
+		</ul>
+	</li>
+	<li>End of Game
+		<ul>
+		<li>Social Media share Buttons</li>
 		</ul>
 	</li>
 </ul>
