@@ -30,11 +30,6 @@ http://killthisdog.com/game-preview
 		<li>Make the coin hits animation.</li>
 		</ul>
 	</li>
-	<li>Countdown to Begin Game
-		<ul>
-		<li>Style the PLAY SCREEN with a countdown as to when the game begins. 3, 2, 1, Go!!! (or even 'Kill')</li>
-		</ul>
-	</li>
 	<li>End of Game
 		<ul>
 		<li>Social Media share Buttons</li>
