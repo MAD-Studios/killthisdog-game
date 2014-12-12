@@ -86,6 +86,22 @@ body {
     padding-top: 24px;
     padding-right: 24px; }
 
+#sound-on, #sound-off {
+  position: absolute;
+  top: 91%;
+  right: auto;
+  bottom: auto;
+  left: 2%;
+  z-index: 1000;
+  background-color: #504f4d;
+  width: 34px;
+  height: 51px;
+  margin: 0px;
+  padding: 0px; }
+  #sound-on .fa, #sound-off .fa {
+    color: #ffffff;
+    font-size: 30px; }
+
 #gameCountdown {
   width: 300px;
   height: 300px;
@@ -195,7 +211,8 @@ body {
 .hit-cat-type-m {
   background-image: url(../images/sprite-cat-small.png); }
 
-.com-type-m {
+.com-type-m,
+.hit-com-type-m {
   background-image: url(../images/sprite-coin.png); }
 
 .hit .hit-dog-type-l {
@@ -449,6 +466,14 @@ body {
   /* Standard syntax */
   animation-name: animationCoin;
   animation-duration: 1s; }
+
+.fb-share-button a, .twitter-share-button a, .learn-more-btn a {
+  text-decoration: none;
+  color: #921A1D; }
+
+.fb-share-button a:hover, .twitter-share-button a:hover, .learn-more-btn a:hover {
+  text-decoration: none;
+  color: #58595B; }
 
 .loading-screen > div {
   position: relative; }

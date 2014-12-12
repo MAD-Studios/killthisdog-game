@@ -3,6 +3,7 @@ var hitType = 'save';
 var hitType2 = 'saved';
 var counter;
 var sound = new Sound();
+var volume = 0.5;
 
 //control variable if pet in hit-area is hit
 var hitDumpster = false;
@@ -29,6 +30,22 @@ var trashcan2PetType;
 var bagPetType;
 var manholePetType;
 var cardboardboxPetType;
+
+//different animation directions for shovel and scissor
+var offset_left, offset_top, animate_left, animate_top;
+
+var offset_left_array = [0,200,-200,75,150,175];
+var offset_top_array = [-200,0,-50,-150,200,-175];
+var animate_left_array = ["+=0","-=200","+=200","-=75","-=150","-=175"];
+var animate_top_array = ["+=200","+=0","+=50","+=150","-=200","+=175"];
+
+// var offset_left1=0, offset_top1=200, animate_left1="+=0", animate_top1="+=200";
+// var offset_left2=200, offset_top2=0, animate_left2="-=200", animate_top2="+=0";
+// var offset_left3=-200, offset_top3=50, animate_left3="+=200", animate_top3="+=50";
+// var offset_left4=-75, offset_top4=-150, animate_left4="+=75", animate_top4="-=150";
+// var offset_left5=150, offset_top5=-200, animate_left5="-150", animate_top5="-=200";
+// var offset_left6=175, offset_top6=175, animate_left6="-=175", animate_top6="+=175";
+
 
 $("#killPets").click(function() {
 	mode = 'kill';
@@ -274,104 +291,104 @@ function playSound(hitArea){
 		switch (hitArea) {
 			case '.location-dumpster':
 				if(dumpsterPetType == 0){
-					sound.playSound("metal_plate");
-					sound.playSound("blood8");
-					sound.playSound("dog_big");
+					sound.playSound("metal_plate", volume);
+					sound.playSound("blood8", volume);
+					sound.playSound("dog_big", volume);
 				} else if(dumpsterPetType == 1){
-					sound.playSound("metal1");
-					sound.playSound("blood3");
-					sound.playSound("dog_small");
+					sound.playSound("metal1", volume);
+					sound.playSound("blood3", volume);
+					sound.playSound("dog_small", volume);
 				} else if(dumpsterPetType == 2){
-					sound.playSound("metal2");
-					sound.playSound("blood4");
-					sound.playSound("cat4");
+					sound.playSound("metal2", volume);
+					sound.playSound("blood4", volume);
+					sound.playSound("cat4", volume);
 				} else if (dumpsterPetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-trashcan1':
 				if(trashcan1PetType == 0){
-					sound.playSound("metal_plate");
-					sound.playSound("blood8");
-					sound.playSound("dog_big");
+					sound.playSound("metal_plate", volume);
+					sound.playSound("blood8", volume);
+					sound.playSound("dog_big", volume);
 				} else if(trashcan1PetType == 1){
-					sound.playSound("metal1");
-					sound.playSound("blood3");
-					sound.playSound("dog_small");
+					sound.playSound("metal1", volume);
+					sound.playSound("blood3", volume);
+					sound.playSound("dog_small", volume);
 				} else if(trashcan1PetType == 2){
-					sound.playSound("metal2");
-					sound.playSound("blood4");
-					sound.playSound("cat4");
+					sound.playSound("metal2", volume);
+					sound.playSound("blood4", volume);
+					sound.playSound("cat4", volume);
 				} else if (trashcan1PetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-trashcan2':
 				if(trashcan2PetType == 0){
-					sound.playSound("metal_plate");
-					sound.playSound("blood8");
-					sound.playSound("dog_big");
+					sound.playSound("metal_plate", volume);
+					sound.playSound("blood8", volume);
+					sound.playSound("dog_big", volume);
 				} else if(trashcan2PetType == 1){
-						sound.playSound("metal1");
-					sound.playSound("blood3");
-					sound.playSound("dog_small");
+						sound.playSound("metal1", volume);
+					sound.playSound("blood3", volume);
+					sound.playSound("dog_small", volume);
 				} else if(trashcan2PetType == 2){
-					sound.playSound("metal2");
-					sound.playSound("blood4");
-					sound.playSound("cat4");
+					sound.playSound("metal2", volume);
+					sound.playSound("blood4", volume);
+					sound.playSound("cat4", volume);
 				} else if (trashcan2PetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-bag':
 				if(bagPetType == 0){
-					sound.playSound("metal_plate");
-					sound.playSound("blood8");
-					sound.playSound("dog_big");
+					sound.playSound("metal_plate", volume);
+					sound.playSound("blood8", volume);
+					sound.playSound("dog_big", volume);
 				} else if(bagPetType == 1){
-					sound.playSound("metal1");
-					sound.playSound("blood3");
-					sound.playSound("dog_small");
+					sound.playSound("metal1", volume);
+					sound.playSound("blood3", volume);
+					sound.playSound("dog_small", volume);
 				} else if(bagPetType == 2){
-					sound.playSound("metal2");
-					sound.playSound("blood4");
-					sound.playSound("cat4");
+					sound.playSound("metal2", volume);
+					sound.playSound("blood4", volume);
+					sound.playSound("cat4", volume);
 				} else if (bagPetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-manhole':
 				if(manholePetType == 0){
-					sound.playSound("metal_plate");
-					sound.playSound("blood8");
-					sound.playSound("dog_big");
+					sound.playSound("metal_plate", volume);
+					sound.playSound("blood8", volume);
+					sound.playSound("dog_big", volume);
 				} else if(manholePetType == 1){
-					sound.playSound("metal1");
-					sound.playSound("blood3");
-					sound.playSound("dog_small");
+					sound.playSound("metal1", volume);
+					sound.playSound("blood3", volume);
+					sound.playSound("dog_small", volume);
 				} else if(manholePetType == 2){
-					sound.playSound("metal2");
-					sound.playSound("blood4");
-					sound.playSound("cat4");
+					sound.playSound("metal2", volume);
+					sound.playSound("blood4", volume);
+					sound.playSound("cat4", volume);
 				} else if (manholePetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-cardboardBox':
 				if(cardboardboxPetType == 0){
-					sound.playSound("metal_plate");
-					sound.playSound("blood8");
-					sound.playSound("dog_big");
+					sound.playSound("metal_plate", volume);
+					sound.playSound("blood8", volume);
+					sound.playSound("dog_big", volume);
 				} else if(cardboardboxPetType == 1){
-					sound.playSound("metal1");
-					sound.playSound("blood3");
-					sound.playSound("dog_small");
+					sound.playSound("metal1", volume);
+					sound.playSound("blood3", volume);
+					sound.playSound("dog_small", volume);
 				} else if(cardboardboxPetType == 2){
-					sound.playSound("metal2");
-					sound.playSound("blood4");
-					sound.playSound("cat4");
+					sound.playSound("metal2", volume);
+					sound.playSound("blood4", volume);
+					sound.playSound("cat4", volume);
 				} else if (cardboardboxPetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			default:
@@ -381,86 +398,86 @@ function playSound(hitArea){
 		switch (hitArea) {
 			case '.location-dumpster':
 				if(dumpsterPetType == 0){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_big");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_big", volume);
 				} else if(dumpsterPetType == 1){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_small");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_small", volume);
 				} else if(dumpsterPetType == 2){
-					sound.playSound("chop-multiple");
-					sound.playSound("cat4");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("cat4", volume);
 				} else if (dumpsterPetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-trashcan1':
 				if(trashcan1PetType == 0){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_big");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_big", volume);
 				} else if(trashcan1PetType == 1){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_small");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_small", volume);
 				} else if(trashcan1PetType == 2){
-					sound.playSound("chop-multiple");
-					sound.playSound("cat4");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("cat4", volume);
 				} else if (trashcan1PetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-trashcan2':
 				if(trashcan2PetType == 0){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_big");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_big", volume);
 				} else if(trashcan2PetType == 1){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_small");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_small", volume);
 				} else if(trashcan2PetType == 2){
-					sound.playSound("chop-multiple");
-					sound.playSound("cat4");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("cat4", volume);
 				} else if (trashcan2PetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-bag':
 				if(bagPetType == 0){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_big");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_big", volume);
 				} else if(bagPetType == 1){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_small");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_small", volume);
 				} else if(bagPetType == 2){
-					sound.playSound("chop-multiple");
-					sound.playSound("cat4");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("cat4", volume);
 				} else if (bagPetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-manhole':
 				if(manholePetType == 0){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_big");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_big", volume);
 				} else if(manholePetType == 1){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_small");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_small", volume);
 				} else if(manholePetType == 2){
-					sound.playSound("chop-multiple");
-					sound.playSound("cat4");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("cat4", volume);
 				} else if (manholePetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-cardboardBox':
 				if(cardboardboxPetType == 0){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_big");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_big", volume);
 				} else if(cardboardboxPetType == 1){
-					sound.playSound("chop-multiple");
-					sound.playSound("dog_small");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("dog_small", volume);
 				} else if(cardboardboxPetType == 2){
-					sound.playSound("chop-multiple");
-					sound.playSound("cat4");
+					sound.playSound("chop-multiple", volume);
+					sound.playSound("cat4", volume);
 				} else if (cardboardboxPetType == 3){
-					sound.playSound("trumpet");
+					sound.playSound("trumpet", volume);
 				}
 				break;
 			default:
@@ -621,8 +638,8 @@ function createNewPet(hitArea){
 	        break;
 	    // cat
 	    case 3:
-	    	var random_com = Math.ceil(Math.random() * 4);
-	    	if(random_com < 4){
+	    	var random_com = Math.ceil(Math.random() * 3);
+	    	if(random_com < 3){
 	    		$(".hit-targets" + hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"300\"></div>");
 	    		setPetType(hitArea, 2);
 	    	}else{
@@ -646,107 +663,159 @@ function createNewPet(hitArea){
 	}, timeout*1000);
 }
 
+function setRandomDirection(){
+	var random_direction = Math.ceil(Math.random() * 6);
+	console.log(random_direction);
+	offset_left = offset_left_array[random_direction-1];
+	offset_top = offset_top_array[random_direction-1];
+	animate_left = animate_left_array[random_direction-1];
+	animate_top = animate_top_array[random_direction-1];
+
+	console.log(offset_left + ", " + offset_top + ", " + animate_left + ", " + animate_top);
+}
+
 $(".hit-targets.location-dumpster").on("click", "div", function(e) {
 	$(".hit-targets.location-dumpster").css("pointer-events","none"); //prevent multiple actions on one pet at one location
+	setRandomDirection();
 
-	$( ".location-dumpster.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left - 10,"top":e.pageY + $(".play-active").offset().top - 200 - 20});
-	$( ".location-dumpster.img.hit-type" ).removeClass("off");
-	$( ".location-dumpster.img.hit-type" ).addClass("on");
-	$( ".location-dumpster.img.hit-type" ).animate({
-	    //left: "-=200",
-	    top: "+=200"
-	  }, 300, function() {
-	    $( ".location-dumpster.img.hit-type" ).removeClass("on");
-		$( ".location-dumpster.img.hit-type" ).addClass("off");
+	if(!($(".hit-targets.location-dumpster div").hasClass("com-type-m"))){
+		$( ".location-dumpster.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-dumpster.img.hit-type" ).removeClass("off");
+		$( ".location-dumpster.img.hit-type" ).addClass("on");
+		$( ".location-dumpster.img.hit-type" ).animate({
+		    left: animate_left,
+		    top: animate_top
+		  }, 300, function() {
+		    $( ".location-dumpster.img.hit-type" ).removeClass("on");
+			$( ".location-dumpster.img.hit-type" ).addClass("off");
+			hit(".location-dumpster", hitType, hitType2);
+		});
+	}else{
 		hit(".location-dumpster", hitType, hitType2);
-	});
-
-	//hit(".location-dumpster", hitType, hitType2);
+	}
 });
+
 $(".hit-targets.location-trashcan1").on("click", "div", function(e) {
 	$(".hit-targets.location-trashcan1").css("pointer-events","none"); //prevent multiple actions on one pet at one location
+	setRandomDirection();
 
-	$( ".location-trashcan1.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left - 10,"top":e.pageY + $(".play-active").offset().top - 200 - 20});
-	$( ".location-trashcan1.img.hit-type" ).removeClass("off");
-	$( ".location-trashcan1.img.hit-type" ).addClass("on");
-	$( ".location-trashcan1.img.hit-type" ).animate({
-	    //left: "-=200",
-	    top: "+=200"
-	  }, 300, function() {
-	    $( ".location-trashcan1.img.hit-type" ).removeClass("on");
-		$( ".location-trashcan1.img.hit-type" ).addClass("off");
+	if(!($(".hit-targets.location-trashcan1 div").hasClass("com-type-m"))){
+		$( ".location-trashcan1.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-trashcan1.img.hit-type" ).removeClass("off");
+		$( ".location-trashcan1.img.hit-type" ).addClass("on");
+		$( ".location-trashcan1.img.hit-type" ).animate({
+		    left: animate_left,
+		    top: animate_top
+		  }, 300, function() {
+		    $( ".location-trashcan1.img.hit-type" ).removeClass("on");
+			$( ".location-trashcan1.img.hit-type" ).addClass("off");
+			hit(".location-trashcan1", hitType, hitType2);
+		});
+	}else{
 		hit(".location-trashcan1", hitType, hitType2);
-	});
-
-	//hit(".location-trashcan1", hitType, hitType2);
+	}
 });
+
 $(".hit-targets.location-trashcan2").on("click", "div", function(e) {
 	$(".hit-targets.location-trashcan2").css("pointer-events","none"); //prevent multiple actions on one pet at one location
+	setRandomDirection();
 
-	$( ".location-trashcan2.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left - 10,"top":e.pageY + $(".play-active").offset().top - 200 - 20});
-	$( ".location-trashcan2.img.hit-type" ).removeClass("off");
-	$( ".location-trashcan2.img.hit-type" ).addClass("on");
-	$( ".location-trashcan2.img.hit-type" ).animate({
-	    //left: "-=200",
-	    top: "+=200"
-	  }, 300, function() {
-	    $( ".location-trashcan2.img.hit-type" ).removeClass("on");
-		$( ".location-trashcan2.img.hit-type" ).addClass("off");
+	if(!($(".hit-targets.location-trashcan2 div").hasClass("com-type-m"))){
+		$( ".location-trashcan2.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-trashcan2.img.hit-type" ).removeClass("off");
+		$( ".location-trashcan2.img.hit-type" ).addClass("on");
+		$( ".location-trashcan2.img.hit-type" ).animate({
+		    left: animate_left,
+		    top: animate_top
+		  }, 300, function() {
+		    $( ".location-trashcan2.img.hit-type" ).removeClass("on");
+			$( ".location-trashcan2.img.hit-type" ).addClass("off");
+			hit(".location-trashcan2", hitType, hitType2);
+		});
+	}else{
 		hit(".location-trashcan2", hitType, hitType2);
-	});
-
-	//hit(".location-trashcan2", hitType, hitType2);
+	}
 });
+
 $(".hit-targets.location-bag").on("click", "div", function(e) {
 	$(".hit-targets.location-bag").css("pointer-events","none"); //prevent multiple actions on one pet at one location
+	setRandomDirection();
 
-	$( ".location-bag.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left - 10,"top":e.pageY + $(".play-active").offset().top - 200 - 20});
-	$( ".location-bag.img.hit-type" ).removeClass("off");
-	$( ".location-bag.img.hit-type" ).addClass("on");
-	$( ".location-bag.img.hit-type" ).animate({
-	    //left: "-=200",
-	    top: "+=200"
-	  }, 300, function() {
-	    $( ".location-bag.img.hit-type" ).removeClass("on");
-		$( ".location-bag.img.hit-type" ).addClass("off");
+	if(!($(".hit-targets.location-bag div").hasClass("com-type-m"))){
+		$( ".location-bag.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-bag.img.hit-type" ).removeClass("off");
+		$( ".location-bag.img.hit-type" ).addClass("on");
+		$( ".location-bag.img.hit-type" ).animate({
+		    left: animate_left,
+		    top: animate_top
+		  }, 300, function() {
+		    $( ".location-bag.img.hit-type" ).removeClass("on");
+			$( ".location-bag.img.hit-type" ).addClass("off");
+			hit(".location-bag", hitType, hitType2);
+		});
+	}else{
 		hit(".location-bag", hitType, hitType2);
-	});
-
-	//hit(".location-bag", hitType, hitType2);
+	}
 });
+
 $(".hit-targets.location-manhole").on("click", "div", function(e) {
 	$(".hit-targets.location-manhole").css("pointer-events","none"); //prevent multiple actions on one pet at one location
+	setRandomDirection();
 
-	$( ".location-manhole.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left - 10,"top":e.pageY + $(".play-active").offset().top - 200 - 20});
-	$( ".location-manhole.img.hit-type" ).removeClass("off");
-	$( ".location-manhole.img.hit-type" ).addClass("on");
-	$( ".location-manhole.img.hit-type" ).animate({
-	    //left: "-=200",
-	    top: "+=200"
-	  }, 300, function() {
-	    $( ".location-manhole.img.hit-type" ).removeClass("on");
-		$( ".location-manhole.img.hit-type" ).addClass("off");
+	if(!($(".hit-targets.location-manhole div").hasClass("com-type-m"))){
+		$( ".location-manhole.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-manhole.img.hit-type" ).removeClass("off");
+		$( ".location-manhole.img.hit-type" ).addClass("on");
+		$( ".location-manhole.img.hit-type" ).animate({
+		    left: animate_left,
+		    top: animate_top
+		  }, 300, function() {
+		    $( ".location-manhole.img.hit-type" ).removeClass("on");
+			$( ".location-manhole.img.hit-type" ).addClass("off");
+			hit(".location-manhole", hitType, hitType2);
+		});
+	}else{
 		hit(".location-manhole", hitType, hitType2);
-	});
-
-	//hit(".location-manhole", hitType, hitType2);
+	}
 });
+
 $(".hit-targets.location-cardboardBox").on("click", "div", function(e) {
 	$(".hit-targets.location-cardboardBox").css("pointer-events","none"); //prevent multiple actions on one pet at one location
+	setRandomDirection();
 
-	$( ".location-cardboardBox.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left - 10,"top":e.pageY + $(".play-active").offset().top - 200 - 20});
-	$( ".location-cardboardBox.img.hit-type" ).removeClass("off");
-	$( ".location-cardboardBox.img.hit-type" ).addClass("on");
-	$( ".location-cardboardBox.img.hit-type" ).animate({
-	    //left: "-=200",
-	    top: "+=200"
-	  }, 300, function() {
-	    $( ".location-cardboardBox.img.hit-type" ).removeClass("on");
-		$( ".location-cardboardBox.img.hit-type" ).addClass("off");
+	if(!($(".hit-targets.location-cardboardBox div").hasClass("com-type-m"))){
+		$( ".location-cardboardBox.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-cardboardBox.img.hit-type" ).removeClass("off");
+		$( ".location-cardboardBox.img.hit-type" ).addClass("on");
+		$( ".location-cardboardBox.img.hit-type" ).animate({
+		    left: animate_left,
+		    top: animate_top
+		  }, 300, function() {
+		    $( ".location-cardboardBox.img.hit-type" ).removeClass("on");
+			$( ".location-cardboardBox.img.hit-type" ).addClass("off");
+			hit(".location-cardboardBox", hitType, hitType2);
+		});
+	}else{
 		hit(".location-cardboardBox", hitType, hitType2);
-	});
+	}
+});
 
-	//hit(".location-cardboardBox", hitType, hitType2);
+$("#sound-on").click(function() {
+	console.log("sound off");
+	$("#sound-on").toggle();
+	$("#sound-off").toggle();
+	// $( "#sound .fa" ).removeClass("fa-volume-up");
+	// $( "#sound .fa" ).addClass("fa-volume-off");
+	volume = 0;
+});
+
+$("#sound-off").click(function() {
+	console.log("test on");
+	$("#sound-on").toggle();
+	$("#sound-off").toggle();
+	// $( "#sound .fa" ).removeClass("fa-volume-off");
+	// $( "#sound .fa" ).addClass("fa-volume-up");
+	volume = 0.5;
 });
 
 function playAgain(){

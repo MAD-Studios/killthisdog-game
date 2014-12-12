@@ -4,7 +4,7 @@ function Counter(mode){
 	$('#gameCountdown').css("display", "block");
 
 	if(mode=='timer'){
-		counter.setMinutes(counter.getMinutes() + 1);
+		counter.setMinutes(counter.getMinutes() + 0);
 		counter.setSeconds(counter.getSeconds() + 30);
 		$('#gameTimer').countdown({compact:true, until: counter, format: 'MS', onExpiry: timeOff}); 
 	}else{

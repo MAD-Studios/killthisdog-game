@@ -99,6 +99,19 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 		padding-right: 24px;
 	}
 }
+#sound-on, #sound-off{
+	@include position( absolute, 91% auto auto 2% );
+	z-index:1000;
+	background-color: #504f4d;
+	width: 34px;
+	height: 51px;
+	margin: 0px;
+	padding: 0px;
+	.fa{
+		color:#ffffff;
+		font-size: 30px;
+	}
+}
 #gameCountdown{
 	width:300px;
 	height:300px;
@@ -163,6 +176,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 		background: url(../images/e-cardboardBox.png) no-repeat;
 	}
 }
+
 // Target Assets
 .dog-type-s,
 .cat-type-m {background-position: -12px 0px;}
@@ -173,7 +187,8 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 .hit-dog-type-s {background-image: url(../images/sprite-dog-small.png);}
 .cat-type-m, 
 .hit-cat-type-m {background-image: url(../images/sprite-cat-small.png);}
-.com-type-m {background-image: url(../images/sprite-coin.png);}
+.com-type-m,
+.hit-com-type-m {background-image: url(../images/sprite-coin.png);}
 
 .hit .hit-dog-type-l {background-position: -132px 0px;}
 .hit .hit-dog-type-s {background-position: -133px 0px;}
@@ -366,6 +381,16 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
     /* Standard syntax */
     animation-name: animationCoin;
     animation-duration: 1s;
+}
+
+.fb-share-button a, .twitter-share-button a, .learn-more-btn a{
+	text-decoration: none;
+	color:#921A1D;
+}
+
+.fb-share-button a:hover, .twitter-share-button a:hover, .learn-more-btn a:hover{
+	text-decoration: none;
+	color: #58595B;
 }
 
 @import 'frames.scss';

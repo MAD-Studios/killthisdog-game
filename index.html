@@ -24,16 +24,65 @@
         <script src="js/vendor/ion.sound.min.js"></script>
         <script src="js/preload.js"></script>
 
+        <!--<script type="text/javascript">
+            $(document).ready(function(){
+            $('#facebook').click(function(e){
+            e.preventDefault();
+            FB.ui(
+            {
+            method: 'feed',
+            name: 'This is the content of the "name" field.',
+            link: 'http://killthisdog.com/',
+            redirect_uri: 'http://killthisdog.com/',
+            picture: 'http://www.hyperarts.com/external-xfbml/share-image.gif',
+            caption: 'This is the content of the "caption" field.',
+            description: 'This is the content of the "description" field, below the caption.',
+            message: ''
+            });
+            });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            $('#facebook').click(function(e){
+            e.preventDefault();
+            FB.ui({
+              method: 'feed',
+              link: 'https://developers.facebook.com/docs/',
+              caption: 'An example caption',
+            }, function(response){});
+            });
+            });
+        </script>-->
+
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1731180437107585',
+              xfbml      : true,
+              version    : 'v2.2'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.0";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+
         <div id="main-frame">
             <!-- MENU SCREEN -->
             
             <!-- Add an 'active' class to show -->
-            <section class="frame loading-screen ">
+            <section class="frame loading-screen">
                <div class="headline">
                     LOADING ...
                 </div> 
@@ -210,10 +259,12 @@
                                     </tr>
                                 </table>
                             </td>
-                            <td width="15%" id="gameTimer">01:30</td>
+                            <td width="15%" id="gameTimer">00:30</td>
                         </tr>
                     </table>
                 </div>
+                <button id="sound-on"><i class="fa fa-volume-up"></i></button>
+                <button id="sound-off" style="display:none;"><i class="fa fa-volume-off"></i></button>
                 <div id="gameCountdown"></div>
                 <!-- Background Scene Only -->
                 <div id="background-scene">
@@ -224,12 +275,11 @@
                     <div class="environment-manhole environment-items"></div>
                     <div class="environment-cardboardBox environment-items"></div>
                 </div>
-
                 
                 <div class="hit-targets location-dumpster" name="dumpster-target"></div>
-                <div class="hit-targets location-bag" name="bag-target"></div>
                 <div class="hit-targets location-trashcan1" name="trashcan1-target"></div>
                 <div class="hit-targets location-trashcan2" name="trashcan2-target"></div>
+                <div class="hit-targets location-bag" name="bag-target"></div>
                 <div class="hit-targets location-manhole" name="manhole-target"></div>
                 <div class="hit-targets location-cardboardBox" name="cardboardBox-target"></div>
 
@@ -288,12 +338,15 @@
                     Pets’ Broward is a group of compassionate citizens who are committed to ending the yearly killing of thousands of pets in Broward’s public and private shelters through the implementation of the No Kill resolution unanimously passed by the Broward County Commission. To find out what you can do to help end the killing, click Learn More!
                 </div>
                 <div class="learn-more">
-                    <button id="learnMore">LEARN MORE</button>
+                    <button class="learn-more-btn" id="learnMore"><a href="http://petsbroward.org/help-end-the-killing/" target="_blank">LEARN MORE</a></button>
                 </div>
                 <div class="button-wrapper">
                     <button class="green-btn" id="playAgain"><i class="fa fa-repeat"></i>&nbsp;PLAY AGAIN</button>
-                    <button class="green-btn" id="facebook"><i class="fa fa-facebook-square"></i>&nbsp;FACEBOOK</button>
-                    <button class="green-btn" id="twitter"><i class="fa fa-twitter"></i>&nbsp;TWITTER</button>
+                    <!-- data-href="https://developers.facebook.com/docs/plugins/" -->
+                    <button class="green-btn fb-share-button"  id="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://killthisdog.com/" target="popup" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://killthisdog.com/','Facebook','width=600,height=400')"><i class="fa fa-facebook-square"></i>&nbsp;FACEBOOK</a></button>
+                    <button class="green-btn twitter-share-button" id="twitter">
+                        <a href="https://twitter.com/home?status=I've%20played%20this%20game.%20Try%20it%20out%20too!%20http://killthisdog.com/" target="popup" onclick="window.open('https://twitter.com/home?status=I've%20played%20this%20game.%20Try%20it%20out%20too!%20http://killthisdog.com/','Facebook','width=600,height=400')"><i class="fa fa-twitter"></i>&nbsp;TWITTER</a>
+                    </button>
                 </div>
             </section>
         </div>
