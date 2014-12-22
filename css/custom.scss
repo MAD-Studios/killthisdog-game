@@ -1,6 +1,11 @@
 @import 'bourbon/dist/_bourbon.scss';
 // Splash Screen
 
+@font-face{
+	font-family: Veneer-Three;
+	src: url('../fonts/Veneer-Three.otf');
+}
+
 ::selection,
 img::selection {background-color: transparent; color: none;}
 $lb-w: 1020px;
@@ -12,11 +17,6 @@ $lb-h: (($lb-w / 4) * 3);
 @mixin wh-percent ($w, $h) {
 	width: $w;
 	height: $h;
-}
-
-@font-face{
-	font-family: Veneer-Three;
-	src: url('../fonts/Veneer-Three.otf');
 }
 
 html, body {width: 100%; height: 100%;}
@@ -188,7 +188,62 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 .cat-type-m, 
 .hit-cat-type-m {background-image: url(../images/sprite-cat-small.png);}
 .com-type-m,
-.hit-com-type-m {background-image: url(../images/sprite-coin.png);}
+.hit-com-type-animation {background-image: url(../images/sprite-coin.png);}
+
+.hit .hit-com-type-animation, .save .hit-com-type-animation {background-image: url(../images/commissionerCoins_1.png);}
+
+.hit-targets.hit, .hit-targets.save{
+	.img.hit-com-type-animation{
+		background-size: 100px 100px;
+	}
+
+}
+
+.hit-targets.kill, .hit-targets.saved{
+	.img.hit-com-type-animation{
+		background-size: 193px 100px;
+	}
+
+}
+
+.kill .hit-com-type-animation,
+.saved .hit-com-type-animation {
+	background-image: url(../images/commissionerCoins_animation.png); 
+	width:100px; 
+	height:100px;
+
+	-webkit-animation: play 0.2s steps(2) forwards;
+       -moz-animation: play 0.2s steps(2) forwards;
+        -ms-animation: play 0.2s steps(2) forwards;
+         -o-animation: play 0.2s steps(2) forwards;
+            animation: play 0.2s steps(2) forwards;
+}
+
+@-webkit-keyframes play {
+   0% { background-position:    0px 0; } 
+   100% { background-position: -193px 0; }
+}
+
+@-moz-keyframes play {
+   0% { background-position:    0px 0; } 
+   100% { background-position: -193px 0; }
+}
+
+@-ms-keyframes play {
+   0% { background-position:    0px 0; } 
+   100% { background-position: -193px 0; }
+}
+
+@-o-keyframes play {
+   0% { background-position:    0px 0; } 
+   100% { background-position: -193px 0; }
+}
+
+@keyframes play {
+   0% { background-position:    0px 0; } 
+   100% { background-position: -193px 0; }
+}
+
 
 .hit .hit-dog-type-l {background-position: -132px 0px;}
 .hit .hit-dog-type-s {background-position: -133px 0px;}
@@ -207,7 +262,7 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
 .saved .hit-dog-type-s {background-position: -482px 0px;}
 .saved .hit-cat-type-m {background-position: -476px 0px;}
 
-.com-type-m[data-varComm="1"] {background-position: -100px 0px;}
+.com-type-m[data-varComm="1"] {background-position: -103px 3px;}
 .com-type-m[data-varComm="2"] {background-position: -199px 0px;}
 .com-type-m[data-varComm="3"] {background-position: -298px 0px;}
 .com-type-m[data-varComm="4"] {background-position: -397px 0px;}
@@ -323,8 +378,8 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
     100%   {background-position: -12px 0;}
 }
 @-webkit-keyframes animationCoin {
-	0%   {background-position: -100px 100px;}
-    100%   {background-position: -100px 0px;}
+	0%   {background-position: -103px 100px;}
+    100%   {background-position: -103px 3px;}
 }
 @-webkit-keyframes animationHitObject {
 	0%   {background-position: -100px 0px;}
@@ -345,8 +400,8 @@ body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
    100%   {background-position: -12px 0;}
 }
 @keyframes animationCoin {
-	0%   {background-position: -100px 0px; opacity:1;}
-    100%   {background-position: -100px -30px; opacity:0;}
+	0%   {background-position: -103px 3px; opacity:1;}
+    100%   {background-position: -103px -30px; opacity:0;}
 }
 
 .dog-type-l.on{

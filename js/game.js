@@ -107,6 +107,8 @@ function startGame(){
 
 	//create first pet for every location 
 	setTimeout(function() {
+		createNewPet(".location-cardboardBox");
+
 		var random = Math.ceil(Math.random() * 5);
 		setTimeout(function() {
 			createNewPet(".location-dumpster");
@@ -132,10 +134,10 @@ function startGame(){
 			createNewPet(".location-manhole");
 		}, random5*1000);
 
-		var random6 = Math.ceil(Math.random() * 5);
+		/*var random6 = Math.ceil(Math.random() * 5);
 		setTimeout(function() {
 			createNewPet(".location-cardboardBox");
-		}, random6*1000);
+		}, random6*1000);*/
 	}, 4000);
 }
 
@@ -521,7 +523,7 @@ function hit(hitArea, type, state, offset){
 				break;
 			case 3:
 				$(".hit-targets" + hitArea).children("div").remove();
-				$(".hit-targets" + hitArea).append("<div class=\"hit-score\" data-scoreVal=\"400\"></div>");
+				$(".hit-targets" + hitArea).append("<div class=\"img hit-com-type-animation hit-score\" data-scoreVal=\"400\"></div>");
 				break;
 			default:
 				break;
