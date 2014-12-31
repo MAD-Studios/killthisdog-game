@@ -23,6 +23,14 @@
      {id: "sprite-dog-small", src:"images/sprite-dog-small.png"},
      {id: "sprite-cat-small", src:"images/sprite-cat-small.png"},
      {id: "sprite-coin", src:"images/sprite-coin.png"},
+     {id: "coin-bs", src:"images/coin-bs.png"},
+     {id: "coin-clm", src:"images/coin-clm.png"},
+     {id: "coin-dh", src:"images/coin-dh.png"},
+     {id: "coin-lw", src:"images/coin-lw.png"},
+     {id: "coin-sr", src:"images/coin-sr.png"},
+     {id: "coin-tr", src:"images/coin-tr.png"},
+
+     {id: "javascript-game", src:"js/game.js"},
 
      {id: "font", src:"fonts/Veneer-Three.otf"}
  ]);

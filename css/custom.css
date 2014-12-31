@@ -211,15 +211,16 @@ body {
 .hit-cat-type-m {
   background-image: url(../images/sprite-cat-small.png); }
 
-.com-type-m,
 .hit-com-type-animation {
   background-image: url(../images/sprite-coin.png); }
 
 .hit .hit-com-type-animation, .save .hit-com-type-animation {
-  background-image: url(../images/commissionerCoins_1.png); }
+  background-image: url(../images/CommissionerCoins.png); }
 
 .hit-targets.hit .img.hit-com-type-animation, .hit-targets.save .img.hit-com-type-animation {
-  background-size: 100px 100px; }
+  background-size: 102px 102px;
+  left: -3px;
+  top: 3px; }
 
 .hit-targets.kill .img.hit-com-type-animation, .hit-targets.saved .img.hit-com-type-animation {
   background-size: 193px 100px; }
@@ -295,33 +296,33 @@ body {
 .saved .hit-cat-type-m {
   background-position: -476px 0px; }
 
-.com-type-m[data-varComm="1"] {
-  background-position: -103px 3px; }
+.com-type-m.bs {
+  background-image: url(../images/coin-bs.png); }
 
-.com-type-m[data-varComm="2"] {
-  background-position: -199px 0px; }
+.com-type-m.clm {
+  background-image: url(../images/coin-clm.png); }
 
-.com-type-m[data-varComm="3"] {
-  background-position: -298px 0px; }
+.com-type-m.dh {
+  background-image: url(../images/coin-dh.png); }
 
-.com-type-m[data-varComm="4"] {
-  background-position: -397px 0px; }
+.com-type-m.lw {
+  background-image: url(../images/coin-lw.png); }
 
-.com-type-m[data-varComm="5"] {
-  background-position: -496px 0px; }
+.com-type-m.sr {
+  background-image: url(../images/coin-sr.png); }
 
-.com-type-m[data-varComm="6"] {
-  background-position: -595px 0px; }
+.com-type-m.tr {
+  background-image: url(../images/coin-tr.png); }
 
-.com-type-m[data-varComm="7"] {
-  background-position: -694px 0px; }
-
-.com-type-m[data-varComm="8"] {
-  background-position: -793px 0px; }
-
-.com-type-m[data-varComm="9"] {
-  background-position: -892px 0px; }
-
+/*.com-type-m[data-varComm="1"] {background-position: -103px 3px;}
+.com-type-m[data-varComm="2"] {background-position: -199px 0px;}
+.com-type-m[data-varComm="3"] {background-position: -298px 0px;}
+.com-type-m[data-varComm="4"] {background-position: -397px 0px;}
+.com-type-m[data-varComm="5"] {background-position: -496px 0px;}
+.com-type-m[data-varComm="6"] {background-position: -595px 0px;}
+.com-type-m[data-varComm="7"] {background-position: -694px 0px;}
+.com-type-m[data-varComm="8"] {background-position: -793px 0px;}
+.com-type-m[data-varComm="9"] {background-position: -892px 0px;}*/
 .img.hit-type {
   position: absolute;
   top: 0px;
@@ -366,15 +367,11 @@ body {
     display: none;
     z-index: 0; }
 
-.hit-targets.save .img.com-type-m {
-  display: block;
-  width: 91%;
-  background-size: 889px 97px; }
-
 .img.com-type-m {
   display: block;
-  width: 91%;
-  background-size: 889px 97px; }
+  background-size: 72px 72px;
+  bottom: -25px;
+  right: -9px; }
 
 .hit, .kill, .save, .saved {
   pointer-events: none; }
@@ -475,11 +472,9 @@ body {
     background-position: -12px 0; } }
 @keyframes animationCoin {
   0% {
-    background-position: -103px 3px;
-    opacity: 1; }
+    background-position-y: 3px; }
   100% {
-    background-position: -103px -30px;
-    opacity: 0; } }
+    background-position-y: -30px; } }
 .dog-type-l.on {
   /* Chrome, Safari, Opera */
   -webkit-animation-name: animationDogTypeL;
@@ -504,7 +499,7 @@ body {
   animation-name: animationCatTypeM;
   animation-duration: 2s; }
 
-.com-type-m {
+.com-type-m.on {
   /* Chrome, Safari, Opera */
   -webkit-animation-name: animationCoin;
   -webkit-animation-duration: 1s;

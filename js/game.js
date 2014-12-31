@@ -38,14 +38,7 @@ var offset_left_array = [0,200,-200,75,150,175];
 var offset_top_array = [-200,0,-50,-150,200,-175];
 var animate_left_array = ["+=0","-=200","+=200","-=75","-=150","-=175"];
 var animate_top_array = ["+=200","+=0","+=50","+=150","-=200","+=175"];
-
-// var offset_left1=0, offset_top1=200, animate_left1="+=0", animate_top1="+=200";
-// var offset_left2=200, offset_top2=0, animate_left2="-=200", animate_top2="+=0";
-// var offset_left3=-200, offset_top3=50, animate_left3="+=200", animate_top3="+=50";
-// var offset_left4=-75, offset_top4=-150, animate_left4="+=75", animate_top4="-=150";
-// var offset_left5=150, offset_top5=-200, animate_left5="-150", animate_top5="-=200";
-// var offset_left6=175, offset_top6=175, animate_left6="-=175", animate_top6="+=175";
-
+var random_direction;
 
 $("#killPets").click(function() {
 	mode = 'kill';
@@ -90,10 +83,11 @@ $("#saveScore").click(function() {
 	$(".frame.share").addClass("active");
 });
 $("#playAgain").click(function() {
-	playAgain();
+	/*playAgain();
 	$(".frame.share").removeClass("active");
-	$(".frame.play-active").addClass("active");
-	startGame();
+	$(".frame.start-screen").addClass("active");
+	startGame();*/
+	location.reload();
 });
 
 function setHitObject(hitObject){
@@ -142,12 +136,12 @@ function startGame(){
 }
 
 function endGame(){
-    $(".location-dumpster").children("div").remove();
-    $(".location-trashcan1").children("div").remove();
-    $(".location-trashcan2").children("div").remove();
-    $(".location-bag").children("div").remove();
-    $(".location-manhole").children("div").remove();
-    $(".location-cardboardBox").children("div").remove();
+	$(".location-dumpster").children("div").remove();
+	$(".location-trashcan1").children("div").remove();
+	$(".location-trashcan2").children("div").remove();
+	$(".location-bag").children("div").remove();
+	$(".location-manhole").children("div").remove();
+	$(".location-cardboardBox").children("div").remove();
 
 	timeDown = true;
 }
@@ -331,7 +325,7 @@ function playSound(hitArea){
 					sound.playSound("blood8", volume);
 					sound.playSound("dog_big", volume);
 				} else if(trashcan2PetType == 1){
-						sound.playSound("metal1", volume);
+					sound.playSound("metal1", volume);
 					sound.playSound("blood3", volume);
 					sound.playSound("dog_small", volume);
 				} else if(trashcan2PetType == 2){
@@ -548,7 +542,7 @@ function hit(hitArea, type, state, offset){
 				endGame();
 				setTimeout(function() {
 					$(".frame.play-active").removeClass("active");
-	    			if(mode == 'kill'){
+					if(mode == 'kill'){
 						$(".frame.kill-score").addClass("active");
 					}else{
 						$(".frame.save-score").addClass("active");
@@ -562,11 +556,11 @@ function hit(hitArea, type, state, offset){
 					document.getElementById('scoreEndSave').innerHTML = newScore;
 				}
 				setTimeout(function() {
-	    			$(".hit-targets" + hitArea).removeClass(state);
-	    			$(".hit-targets" + hitArea).children("div").remove();
-	    			resetHitVariable(hitArea)
-	    			createNewPet(hitArea);
-	    			$(".hit-targets" + hitArea).css("pointer-events","auto");
+					$(".hit-targets" + hitArea).removeClass(state);
+					$(".hit-targets" + hitArea).children("div").remove();
+					resetHitVariable(hitArea)
+					createNewPet(hitArea);
+					$(".hit-targets" + hitArea).css("pointer-events","auto");
 				}, 1000);
 			}
 		}, 1000);
@@ -611,69 +605,114 @@ function createNewPet(hitArea){
 	setTimeout(function() {
 		// random var to choose pet type
 		var random = Math.ceil(Math.random() * 3);
-		switch(random) {
-		// large dog
-	    case 1:
-	        $(".hit-targets" + hitArea).append("<div class=\"img dog-type-l on\" data-scoreVal=\"100\"></div>");
-	        setPetType(hitArea, 0);
-	    	var appearTime = Math.ceil(Math.random() * 3);
-			setTimeout(function() {
-				if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
-					$(".hit-targets" + hitArea).children("div").remove();
-    				createNewPet(hitArea);
-    			}
-    			resetControlVariable(hitArea);
-			}, appearTime*1000 + 2000); //time large dog appears; 1-3 seconds
-	        break;
-	    // small dog
-	    case 2:
-	    	$(".hit-targets" + hitArea).append("<div class=\"img dog-type-s on\" data-scoreVal=\"200\"></div>");
-	    	var appearTime = Math.ceil(Math.random() * 2);
-	    	setPetType(hitArea, 1);
-			setTimeout(function() {
-				if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
-					$(".hit-targets" + hitArea).children("div").remove();
-    				createNewPet(hitArea);
-    			}
-    			resetControlVariable(hitArea);
-			}, appearTime*1000 + 2000); //time small dog appears; 1-2 seconds
-	        break;
-	    // cat
-	    case 3:
-	    	var random_com = Math.ceil(Math.random() * 3);
-	    	if(random_com < 3){
-	    		$(".hit-targets" + hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"300\"></div>");
-	    		setPetType(hitArea, 2);
-	    	}else{
-	    		$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"1\" data-scoreVal=\"400\"></div>");
-	    		setPetType(hitArea, 3);
-	    	}
-	    	//$(".hit-targets" + hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"300\"></div>");
-	    	//setPetType(hitArea, 2);
-	    	var appearTime = Math.ceil(Math.random() * 2)-0.5;
-			setTimeout(function() {
-				if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
-					$(".hit-targets" + hitArea).children("div").remove();
-    				createNewPet(hitArea);
-    			}
-    			resetControlVariable(hitArea);
-			}, appearTime*1000 + 2000); //time cat appears; 1-1.5 seconds
-	        break;
-	    default:
-	        break;
+		if(!timeDown){
+			switch(random) {
+			// large dog
+			case 1:
+				$(".hit-targets" + hitArea).append("<div class=\"img dog-type-l on\" data-scoreVal=\"100\"></div>");
+				setPetType(hitArea, 0);
+				var appearTime = Math.ceil(Math.random() * 3);
+				setTimeout(function() {
+					if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
+						$(".hit-targets" + hitArea).children("div").remove();
+						createNewPet(hitArea);
+				}
+					resetControlVariable(hitArea);
+				}, appearTime*1000 + 2000); //time large dog appears; 1-3 seconds
+				break;
+			// small dog
+			case 2:
+				$(".hit-targets" + hitArea).append("<div class=\"img dog-type-s on\" data-scoreVal=\"200\"></div>");
+				var appearTime = Math.ceil(Math.random() * 2);
+				setPetType(hitArea, 1);
+				setTimeout(function() {
+					if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
+						$(".hit-targets" + hitArea).children("div").remove();
+						createNewPet(hitArea);
+					}
+					resetControlVariable(hitArea);
+				}, appearTime*1000 + 2000); //time small dog appears; 1-2 seconds
+				break;
+			// cat
+			case 3:
+				var random_com = Math.ceil(Math.random() * 3);
+				if(random_com < 3){
+					$(".hit-targets" + hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"300\"></div>");
+					setPetType(hitArea, 2);
+				}else{
+					var random_comtype = Math.ceil(Math.random() * 3);
+					if(mode=="kill"){
+						switch (random_comtype){
+							case 1:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"1\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m bs on\" data-scoreVal=\"400\"></div>")
+								break;
+							case 2:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"3\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m dh on\" data-scoreVal=\"400\"></div>")
+								break;
+							case 3:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"8\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m sr on\" data-scoreVal=\"400\"></div>")
+								break;
+							default:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"3\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m bs on\" data-scoreVal=\"400\"></div>")
+								break;
+						}
+					}else{
+						switch (random_comtype){
+							case 1:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"2\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m clm on\" data-scoreVal=\"400\"></div>");
+								break;
+							case 2:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"5\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m lw on\" data-scoreVal=\"400\"></div>")
+								break;
+							case 3:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"9\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m tr on\" data-scoreVal=\"400\"></div>")
+								break;
+							default:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"5\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m clm on\" data-scoreVal=\"400\"></div>")
+								break;
+						}
+					}
+					//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"1\" data-scoreVal=\"400\"></div>");
+					setPetType(hitArea, 3);
+				}
+				//$(".hit-targets" + hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"300\"></div>");
+				//setPetType(hitArea, 2);
+				var appearTime = Math.ceil(Math.random() * 2)-0.5;
+				setTimeout(function() {
+					if(!getHitVariable(hitArea) && !getControlVariable(hitArea)){
+						$(".hit-targets" + hitArea).children("div").remove();
+						createNewPet(hitArea);
+					}
+					resetControlVariable(hitArea);
+				}, appearTime*1000 + 2000); //time cat appears; 1-1.5 seconds
+				break;
+			default:
+				break;
+			}
 		}
 	}, timeout*1000);
 }
 
 function setRandomDirection(){
-	var random_direction = Math.ceil(Math.random() * 6);
-	console.log(random_direction);
+	random_direction = Math.ceil(Math.random() * 6);
 	offset_left = offset_left_array[random_direction-1];
 	offset_top = offset_top_array[random_direction-1];
 	animate_left = animate_left_array[random_direction-1];
 	animate_top = animate_top_array[random_direction-1];
+	/*$( ".location-dumpster.img.hit-type" ).css({
+		"webkitTransform": "rotate(60deg)",
+	    "transform": "rotate(60deg)"
+	});*/
 
-	console.log(offset_left + ", " + offset_top + ", " + animate_left + ", " + animate_top);
+	//"MozTransform": "rotate(60deg)", "msTransform": "rotate(60deg)", "OTransform": "rotate(60deg)",
 }
 
 $(".hit-targets.location-dumpster").on("click", "div", function(e) {
@@ -681,14 +720,22 @@ $(".hit-targets.location-dumpster").on("click", "div", function(e) {
 	setRandomDirection();
 
 	if(!($(".hit-targets.location-dumpster div").hasClass("com-type-m"))){
-		$( ".location-dumpster.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-dumpster.img.hit-type" ).css({
+			"left":e.pageX - $(".play-active").offset().left + offset_left - 10,
+			"top":e.pageY + $(".play-active").offset().top + offset_top - 20,
+			"webkitTransform": "rotate("+ (random_direction*60) + "deg)",
+			"MozTransform": "rotate("+ (random_direction*60) + "deg)",
+			"msTransform": "rotate("+ (random_direction*60) + "deg)",
+			"OTransform": "rotate("+ (random_direction*60) + "deg)",
+	    	"transform": "rotate("+ (random_direction*60) + "deg)"
+		});
 		$( ".location-dumpster.img.hit-type" ).removeClass("off");
 		$( ".location-dumpster.img.hit-type" ).addClass("on");
 		$( ".location-dumpster.img.hit-type" ).animate({
-		    left: animate_left,
-		    top: animate_top
-		  }, 300, function() {
-		    $( ".location-dumpster.img.hit-type" ).removeClass("on");
+			left: animate_left,
+			top: animate_top
+		}, 300, function() {
+			$( ".location-dumpster.img.hit-type" ).removeClass("on");
 			$( ".location-dumpster.img.hit-type" ).addClass("off");
 			hit(".location-dumpster", hitType, hitType2);
 		});
@@ -702,14 +749,22 @@ $(".hit-targets.location-trashcan1").on("click", "div", function(e) {
 	setRandomDirection();
 
 	if(!($(".hit-targets.location-trashcan1 div").hasClass("com-type-m"))){
-		$( ".location-trashcan1.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-trashcan1.img.hit-type" ).css({
+			"left":e.pageX - $(".play-active").offset().left + offset_left - 10,
+			"top":e.pageY + $(".play-active").offset().top + offset_top - 20,
+			"webkitTransform": "rotate("+ (random_direction*60) + "deg)",
+			"MozTransform": "rotate("+ (random_direction*60) + "deg)",
+			"msTransform": "rotate("+ (random_direction*60) + "deg)",
+			"OTransform": "rotate("+ (random_direction*60) + "deg)",
+	    	"transform": "rotate("+ (random_direction*60) + "deg)"
+		});
 		$( ".location-trashcan1.img.hit-type" ).removeClass("off");
 		$( ".location-trashcan1.img.hit-type" ).addClass("on");
 		$( ".location-trashcan1.img.hit-type" ).animate({
-		    left: animate_left,
-		    top: animate_top
-		  }, 300, function() {
-		    $( ".location-trashcan1.img.hit-type" ).removeClass("on");
+			left: animate_left,
+			top: animate_top
+		}, 300, function() {
+			$( ".location-trashcan1.img.hit-type" ).removeClass("on");
 			$( ".location-trashcan1.img.hit-type" ).addClass("off");
 			hit(".location-trashcan1", hitType, hitType2);
 		});
@@ -723,14 +778,22 @@ $(".hit-targets.location-trashcan2").on("click", "div", function(e) {
 	setRandomDirection();
 
 	if(!($(".hit-targets.location-trashcan2 div").hasClass("com-type-m"))){
-		$( ".location-trashcan2.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-trashcan2.img.hit-type" ).css({
+			"left":e.pageX - $(".play-active").offset().left + offset_left - 10,
+			"top":e.pageY + $(".play-active").offset().top + offset_top - 20,
+			"webkitTransform": "rotate("+ (random_direction*60) + "deg)",
+			"MozTransform": "rotate("+ (random_direction*60) + "deg)",
+			"msTransform": "rotate("+ (random_direction*60) + "deg)",
+			"OTransform": "rotate("+ (random_direction*60) + "deg)",
+	    	"transform": "rotate("+ (random_direction*60) + "deg)"
+		});
 		$( ".location-trashcan2.img.hit-type" ).removeClass("off");
 		$( ".location-trashcan2.img.hit-type" ).addClass("on");
 		$( ".location-trashcan2.img.hit-type" ).animate({
-		    left: animate_left,
-		    top: animate_top
-		  }, 300, function() {
-		    $( ".location-trashcan2.img.hit-type" ).removeClass("on");
+			left: animate_left,
+			top: animate_top
+		}, 300, function() {
+			$( ".location-trashcan2.img.hit-type" ).removeClass("on");
 			$( ".location-trashcan2.img.hit-type" ).addClass("off");
 			hit(".location-trashcan2", hitType, hitType2);
 		});
@@ -744,14 +807,22 @@ $(".hit-targets.location-bag").on("click", "div", function(e) {
 	setRandomDirection();
 
 	if(!($(".hit-targets.location-bag div").hasClass("com-type-m"))){
-		$( ".location-bag.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-bag.img.hit-type" ).css({
+			"left":e.pageX - $(".play-active").offset().left + offset_left - 10,
+			"top":e.pageY + $(".play-active").offset().top + offset_top - 20,
+			"webkitTransform": "rotate("+ (random_direction*60) + "deg)",
+			"MozTransform": "rotate("+ (random_direction*60) + "deg)",
+			"msTransform": "rotate("+ (random_direction*60) + "deg)",
+			"OTransform": "rotate("+ (random_direction*60) + "deg)",
+	    	"transform": "rotate("+ (random_direction*60) + "deg)"
+		});
 		$( ".location-bag.img.hit-type" ).removeClass("off");
 		$( ".location-bag.img.hit-type" ).addClass("on");
 		$( ".location-bag.img.hit-type" ).animate({
-		    left: animate_left,
-		    top: animate_top
-		  }, 300, function() {
-		    $( ".location-bag.img.hit-type" ).removeClass("on");
+			left: animate_left,
+			top: animate_top
+		}, 300, function() {
+			$( ".location-bag.img.hit-type" ).removeClass("on");
 			$( ".location-bag.img.hit-type" ).addClass("off");
 			hit(".location-bag", hitType, hitType2);
 		});
@@ -765,14 +836,22 @@ $(".hit-targets.location-manhole").on("click", "div", function(e) {
 	setRandomDirection();
 
 	if(!($(".hit-targets.location-manhole div").hasClass("com-type-m"))){
-		$( ".location-manhole.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-manhole.img.hit-type" ).css({
+			"left":e.pageX - $(".play-active").offset().left + offset_left - 10,
+			"top":e.pageY + $(".play-active").offset().top + offset_top - 20,
+			"webkitTransform": "rotate("+ (random_direction*60) + "deg)",
+			"MozTransform": "rotate("+ (random_direction*60) + "deg)",
+			"msTransform": "rotate("+ (random_direction*60) + "deg)",
+			"OTransform": "rotate("+ (random_direction*60) + "deg)",
+	    	"transform": "rotate("+ (random_direction*60) + "deg)"
+		});
 		$( ".location-manhole.img.hit-type" ).removeClass("off");
 		$( ".location-manhole.img.hit-type" ).addClass("on");
 		$( ".location-manhole.img.hit-type" ).animate({
-		    left: animate_left,
-		    top: animate_top
-		  }, 300, function() {
-		    $( ".location-manhole.img.hit-type" ).removeClass("on");
+			left: animate_left,
+			top: animate_top
+		}, 300, function() {
+			$( ".location-manhole.img.hit-type" ).removeClass("on");
 			$( ".location-manhole.img.hit-type" ).addClass("off");
 			hit(".location-manhole", hitType, hitType2);
 		});
@@ -786,14 +865,22 @@ $(".hit-targets.location-cardboardBox").on("click", "div", function(e) {
 	setRandomDirection();
 
 	if(!($(".hit-targets.location-cardboardBox div").hasClass("com-type-m"))){
-		$( ".location-cardboardBox.img.hit-type" ).css({"left":e.pageX - $(".play-active").offset().left + offset_left - 10,"top":e.pageY + $(".play-active").offset().top + offset_top - 20});
+		$( ".location-cardboardBox.img.hit-type" ).css({
+			"left":e.pageX - $(".play-active").offset().left + offset_left - 10,
+			"top":e.pageY + $(".play-active").offset().top + offset_top - 20,
+			"webkitTransform": "rotate("+ (random_direction*60) + "deg)",
+			"MozTransform": "rotate("+ (random_direction*60) + "deg)",
+			"msTransform": "rotate("+ (random_direction*60) + "deg)",
+			"OTransform": "rotate("+ (random_direction*60) + "deg)",
+	    	"transform": "rotate("+ (random_direction*60) + "deg)"
+		});
 		$( ".location-cardboardBox.img.hit-type" ).removeClass("off");
 		$( ".location-cardboardBox.img.hit-type" ).addClass("on");
 		$( ".location-cardboardBox.img.hit-type" ).animate({
-		    left: animate_left,
-		    top: animate_top
-		  }, 300, function() {
-		    $( ".location-cardboardBox.img.hit-type" ).removeClass("on");
+			left: animate_left,
+			top: animate_top
+		}, 300, function() {
+			$( ".location-cardboardBox.img.hit-type" ).removeClass("on");
 			$( ".location-cardboardBox.img.hit-type" ).addClass("off");
 			hit(".location-cardboardBox", hitType, hitType2);
 		});
@@ -803,35 +890,29 @@ $(".hit-targets.location-cardboardBox").on("click", "div", function(e) {
 });
 
 $("#sound-on").click(function() {
-	console.log("sound off");
 	$("#sound-on").toggle();
 	$("#sound-off").toggle();
-	// $( "#sound .fa" ).removeClass("fa-volume-up");
-	// $( "#sound .fa" ).addClass("fa-volume-off");
 	volume = 0;
 });
 
 $("#sound-off").click(function() {
-	console.log("test on");
 	$("#sound-on").toggle();
 	$("#sound-off").toggle();
-	// $( "#sound .fa" ).removeClass("fa-volume-off");
-	// $( "#sound .fa" ).addClass("fa-volume-up");
 	volume = 0.5;
 });
 
 function playAgain(){
 	$(".location-dumpster").children("div").remove();
-    $(".location-trashcan1").children("div").remove();
-    $(".location-trashcan2").children("div").remove();
-    $(".location-bag").children("div").remove();
-    $(".location-manhole").children("div").remove();
-    $(".location-cardboardBox").children("div").remove();
+	$(".location-trashcan1").children("div").remove();
+	$(".location-trashcan2").children("div").remove();
+	$(".location-bag").children("div").remove();
+	$(".location-manhole").children("div").remove();
+	$(".location-cardboardBox").children("div").remove();
 
 	timeDown = false;
 
 	document.getElementById('pointCount').innerHTML = 0;
-    document.getElementById('scoreEndKill').innerHTML = 0;
-    document.getElementById('scoreEndSave').innerHTML = 0;
-    document.getElementById('gameTimer').innerHTML = '01:30';
+	document.getElementById('scoreEndKill').innerHTML = 0;
+	document.getElementById('scoreEndSave').innerHTML = 0;
+	document.getElementById('gameTimer').innerHTML = '00:30';
 }
