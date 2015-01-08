@@ -31,8 +31,6 @@
      {id: "coin-sr", src:"images/coin-sr.png"},
      {id: "coin-tr", src:"images/coin-tr.png"},
 
-     {id: "javascript-game", src:"js/game.js"},
-
      {id: "font", src:"fonts/Veneer-Three.otf"}
  ]);
 
