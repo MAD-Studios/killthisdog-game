@@ -19,10 +19,21 @@ $lb-h: (($lb-w / 4) * 3);
 	height: $h;
 }
 
-html, body {width: 100%; height: 100%;}
+html, body {
+	width: 100%; 
+	height: 100%;
+}
 // temporary background
 
-body {@include background-image(linear-gradient(to bottom, #000, #F4F5F7));}
+html, body, p, div{
+	font-family: 'Lato', sans-serif;
+}
+
+body {
+	//@include background-image(linear-gradient(to bottom, #000, #F4F5F7));
+	background-image: url(../images/wood_1_@2X.png);
+	background-color: #1e1e1e;
+}
 #main-frame {
 	// Remove when done testing
 	// @include test(white, red);

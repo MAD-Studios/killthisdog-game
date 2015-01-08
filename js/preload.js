@@ -6,6 +6,7 @@
 
  queue.loadManifest([
      {id: "titlepage-txt-whackem_all", src:"images/screens/titlepage-txt-whackem_all.png"},
+     {id: "background", src:"images/wood_1_@2X.png"},
      {id: "howToPlay_largeDog-small", src:"images/screens/howToPlay_largeDog-small.png"},
      {id: "howToPlay_smallDog-small", src:"images/screens/howToPlay_smallDog-small.png"},
      {id: "howToPlay_cat-small", src:"images/screens/howToPlay_cat-small.png"},
@@ -37,5 +38,6 @@
 
  function handleComplete() {
     $(".frame.loading-screen").removeClass("active");
-	$(".frame.start-screen").addClass("active");
+     $(".frame.start-screen").addClass("active");
+     console.log("done");
  }
