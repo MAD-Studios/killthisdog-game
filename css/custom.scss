@@ -30,7 +30,6 @@ html, body, p, div{
 }
 
 body {
-	//@include background-image(linear-gradient(to bottom, #000, #F4F5F7));
 	background-image: url(../images/wood_1_@2X.png);
 	background-color: #1e1e1e;
 }
@@ -45,10 +44,11 @@ body {
 	position: relative;
 }
 .frame {
-	position: relative;
+	position: absolute;
 	width: 100%;
 	height: 100%;
-	display: none;
+	display: block;
+	visibility: hidden;
 	background-color: #921A1D;
 	text-align: center;
 	> div {
@@ -78,7 +78,7 @@ body {
     }
 
 }
-.frame.active {display: block;}
+.frame.active {visibility: visible;}
 
 // Main Menu
 #game-menu {

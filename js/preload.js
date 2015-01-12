@@ -5,12 +5,12 @@
  //preload.on("fileload", handleFileLoad);
 
  queue.loadManifest([
-     {id: "titlepage-txt-whackem_all", src:"images/screens/titlepage-txt-whackem_all.png"},
+     {id: "titlepage-txt-whackem_all", src:"images/titlepage-txt-whackem_all.png"},
      {id: "background", src:"images/wood_1_@2X.png"},
-     {id: "howToPlay_largeDog-small", src:"images/screens/howToPlay_largeDog-small.png"},
-     {id: "howToPlay_smallDog-small", src:"images/screens/howToPlay_smallDog-small.png"},
-     {id: "howToPlay_cat-small", src:"images/screens/howToPlay_cat-small.png"},
-     {id: "coin-mdk", src:"images/screens/coin-mdk.png"},
+     {id: "howToPlay_largeDog-small", src:"images/howToPlay_largeDog-small.png"},
+     {id: "howToPlay_smallDog-small", src:"images/howToPlay_smallDog-small.png"},
+     {id: "howToPlay_cat-small", src:"images/howToPlay_cat-small.png"},
+     {id: "coin-mdk", src:"images/coin-mdk.png"},
 
      {id: "icon-death", src:"images/icon-death.png"},
      {id: "bg", src:"images/bg.jpg"},
@@ -29,9 +29,7 @@
      {id: "coin-dh", src:"images/coin-dh.png"},
      {id: "coin-lw", src:"images/coin-lw.png"},
      {id: "coin-sr", src:"images/coin-sr.png"},
-     {id: "coin-tr", src:"images/coin-tr.png"},
-
-     {id: "font", src:"fonts/Veneer-Three.otf"}
+     {id: "coin-tr", src:"images/coin-tr.png"}
  ]);
 
  function handleComplete() {
