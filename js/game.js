@@ -95,46 +95,6 @@ function setHitObject(hitObject){
 	$(".img.hit-type").append("<img src=\"images/cursor_" + hitObject + ".png\" />");
 }
 
-function startGame(){
-	//start Countdown and Timer
-	counter = new Counter('countdown');
-
-	//create first pet for every location 
-	setTimeout(function() {
-		createNewPet(".location-cardboardBox");
-
-		var random = Math.ceil(Math.random() * 5);
-		setTimeout(function() {
-			createNewPet(".location-dumpster");
-		}, random*1000);
-
-		var random2 = Math.ceil(Math.random() * 5);
-		setTimeout(function() {
-			createNewPet(".location-trashcan1");
-		}, random2*1000);
-
-		var random3 = Math.ceil(Math.random() * 5);
-		setTimeout(function() {
-			createNewPet(".location-trashcan2");
-		}, random3*1000);
-
-		var random4 = Math.ceil(Math.random() * 5);
-		setTimeout(function() {
-			createNewPet(".location-bag");
-		}, random4*1000);
-
-		var random5 = Math.ceil(Math.random() * 5);
-		setTimeout(function() {
-			createNewPet(".location-manhole");
-		}, random5*1000);
-
-		/*var random6 = Math.ceil(Math.random() * 5);
-		setTimeout(function() {
-			createNewPet(".location-cardboardBox");
-		}, random6*1000);*/
-	}, 4000);
-}
-
 function endGame(){
 	$(".location-dumpster").children("div").remove();
 	$(".location-trashcan1").children("div").remove();
@@ -287,102 +247,66 @@ function playSound(hitArea){
 		switch (hitArea) {
 			case '.location-dumpster':
 				if(dumpsterPetType == 0){
-					sound.playSound("metal_plate", volume);
-					sound.playSound("blood8", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("kill_bigDog", volume);
 				} else if(dumpsterPetType == 1){
-					sound.playSound("metal1", volume);
-					sound.playSound("blood3", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("kill_smallDog", volume);
 				} else if(dumpsterPetType == 2){
-					sound.playSound("metal2", volume);
-					sound.playSound("blood4", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("kill_cat", volume);
 				} else if (dumpsterPetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-trashcan1':
 				if(trashcan1PetType == 0){
-					sound.playSound("metal_plate", volume);
-					sound.playSound("blood8", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("kill_bigDog", volume);
 				} else if(trashcan1PetType == 1){
-					sound.playSound("metal1", volume);
-					sound.playSound("blood3", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("kill_smallDog", volume);
 				} else if(trashcan1PetType == 2){
-					sound.playSound("metal2", volume);
-					sound.playSound("blood4", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("kill_cat", volume);
 				} else if (trashcan1PetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-trashcan2':
 				if(trashcan2PetType == 0){
-					sound.playSound("metal_plate", volume);
-					sound.playSound("blood8", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("kill_bigDog", volume);
 				} else if(trashcan2PetType == 1){
-					sound.playSound("metal1", volume);
-					sound.playSound("blood3", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("kill_smallDog", volume);
 				} else if(trashcan2PetType == 2){
-					sound.playSound("metal2", volume);
-					sound.playSound("blood4", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("kill_cat", volume);
 				} else if (trashcan2PetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-bag':
 				if(bagPetType == 0){
-					sound.playSound("metal_plate", volume);
-					sound.playSound("blood8", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("kill_bigDog", volume);
 				} else if(bagPetType == 1){
-					sound.playSound("metal1", volume);
-					sound.playSound("blood3", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("kill_smallDog", volume);
 				} else if(bagPetType == 2){
-					sound.playSound("metal2", volume);
-					sound.playSound("blood4", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("kill_cat", volume);
 				} else if (bagPetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-manhole':
 				if(manholePetType == 0){
-					sound.playSound("metal_plate", volume);
-					sound.playSound("blood8", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("kill_bigDog", volume);
 				} else if(manholePetType == 1){
-					sound.playSound("metal1", volume);
-					sound.playSound("blood3", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("kill_smallDog", volume);
 				} else if(manholePetType == 2){
-					sound.playSound("metal2", volume);
-					sound.playSound("blood4", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("kill_cat", volume);
 				} else if (manholePetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-cardboardBox':
 				if(cardboardboxPetType == 0){
-					sound.playSound("metal_plate", volume);
-					sound.playSound("blood8", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("kill_bigDog", volume);
 				} else if(cardboardboxPetType == 1){
-					sound.playSound("metal1", volume);
-					sound.playSound("blood3", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("kill_smallDog", volume);
 				} else if(cardboardboxPetType == 2){
-					sound.playSound("metal2", volume);
-					sound.playSound("blood4", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("kill_cat", volume);
 				} else if (cardboardboxPetType == 3){
 					sound.playSound("trumpet", volume);
 				}
@@ -394,84 +318,66 @@ function playSound(hitArea){
 		switch (hitArea) {
 			case '.location-dumpster':
 				if(dumpsterPetType == 0){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("save_bigDog", volume);
 				} else if(dumpsterPetType == 1){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("save_smallDog", volume);
 				} else if(dumpsterPetType == 2){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("save_cat", volume);
 				} else if (dumpsterPetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-trashcan1':
 				if(trashcan1PetType == 0){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("save_bigDog", volume);
 				} else if(trashcan1PetType == 1){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("save_smallDog", volume);
 				} else if(trashcan1PetType == 2){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("save_cat", volume);
 				} else if (trashcan1PetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-trashcan2':
 				if(trashcan2PetType == 0){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("save_bigDog", volume);
 				} else if(trashcan2PetType == 1){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("save_smallDog", volume);
 				} else if(trashcan2PetType == 2){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("save_cat", volume);
 				} else if (trashcan2PetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-bag':
 				if(bagPetType == 0){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("save_bigDog", volume);
 				} else if(bagPetType == 1){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("save_smallDog", volume);
 				} else if(bagPetType == 2){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("save_cat", volume);
 				} else if (bagPetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-manhole':
 				if(manholePetType == 0){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("save_bigDog", volume);
 				} else if(manholePetType == 1){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("save_smallDog", volume);
 				} else if(manholePetType == 2){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("save_cat", volume);
 				} else if (manholePetType == 3){
 					sound.playSound("trumpet", volume);
 				}
 				break;
 			case '.location-cardboardBox':
 				if(cardboardboxPetType == 0){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_big", volume);
+					sound.playSound("save_bigDog", volume);
 				} else if(cardboardboxPetType == 1){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("dog_small", volume);
+					sound.playSound("save_smallDog", volume);
 				} else if(cardboardboxPetType == 2){
-					sound.playSound("chop-multiple", volume);
-					sound.playSound("cat4", volume);
+					sound.playSound("save_cat", volume);
 				} else if (cardboardboxPetType == 3){
 					sound.playSound("trumpet", volume);
 				}
@@ -505,19 +411,19 @@ function hit(hitArea, type, state, offset){
 		switch(petType){
 			case 0:
 				$(".hit-targets" + hitArea).children("div").remove();
-				$(".hit-targets" + hitArea).append("<div class=\"img hit-dog-type-l hit-score\" data-scoreVal=\"100\"></div>");
+				$(".hit-targets" + hitArea).append("<div class=\"img hit-dog-type-l hit-score\" data-scoreVal=\"200\"></div>");
 				break;
 			case 1:
 				$(".hit-targets" + hitArea).children("div").remove();
-				$(".hit-targets" + hitArea).append("<div class=\"img hit-dog-type-s hit-score\" data-scoreVal=\"200\"></div>");
+				$(".hit-targets" + hitArea).append("<div class=\"img hit-dog-type-s hit-score\" data-scoreVal=\"400\"></div>");
 				break;
 			case 2:
 				$(".hit-targets" + hitArea).children("div").remove();
-				$(".hit-targets" + hitArea).append("<div class=\"img hit-cat-type-m hit-score\" data-scoreVal=\"300\"></div>");
+				$(".hit-targets" + hitArea).append("<div class=\"img hit-cat-type-m hit-score\" data-scoreVal=\"600\"></div>");
 				break;
 			case 3:
 				$(".hit-targets" + hitArea).children("div").remove();
-				$(".hit-targets" + hitArea).append("<div class=\"img hit-com-type-animation hit-score\" data-scoreVal=\"400\"></div>");
+				$(".hit-targets" + hitArea).append("<div class=\"img hit-com-type-animation hit-score\" data-scoreVal=\"1000\"></div>");
 				break;
 			default:
 				break;
@@ -609,7 +515,7 @@ function createNewPet(hitArea){
 			switch(random) {
 			// large dog
 			case 1:
-				$(".hit-targets" + hitArea).append("<div class=\"img dog-type-l on\" data-scoreVal=\"100\"></div>");
+				$(".hit-targets" + hitArea).append("<div class=\"img dog-type-l on\" data-scoreVal=\"200\"></div>");
 				setPetType(hitArea, 0);
 				var appearTime = Math.ceil(Math.random() * 3);
 				setTimeout(function() {
@@ -622,7 +528,7 @@ function createNewPet(hitArea){
 				break;
 			// small dog
 			case 2:
-				$(".hit-targets" + hitArea).append("<div class=\"img dog-type-s on\" data-scoreVal=\"200\"></div>");
+				$(".hit-targets" + hitArea).append("<div class=\"img dog-type-s on\" data-scoreVal=\"400\"></div>");
 				var appearTime = Math.ceil(Math.random() * 2);
 				setPetType(hitArea, 1);
 				setTimeout(function() {
@@ -637,46 +543,51 @@ function createNewPet(hitArea){
 			case 3:
 				var random_com = Math.ceil(Math.random() * 3);
 				if(random_com < 3){
-					$(".hit-targets" + hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"300\"></div>");
+					$(".hit-targets" + hitArea).append("<div class=\"img cat-type-m on\" data-scoreVal=\"600\"></div>");
 					setPetType(hitArea, 2);
 				}else{
-					var random_comtype = Math.ceil(Math.random() * 3);
 					if(mode=="kill"){
+						var random_comtype = Math.ceil(Math.random() * 3);
 						switch (random_comtype){
 							case 1:
 								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"1\" data-scoreVal=\"400\"></div>");
-								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m bs on\" data-scoreVal=\"400\"></div>")
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m bs on\" data-scoreVal=\"1000\"></div>")
 								break;
 							case 2:
 								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"3\" data-scoreVal=\"400\"></div>");
-								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m dh on\" data-scoreVal=\"400\"></div>")
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m dh on\" data-scoreVal=\"1000\"></div>")
 								break;
 							case 3:
 								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"8\" data-scoreVal=\"400\"></div>");
-								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m sr on\" data-scoreVal=\"400\"></div>")
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m sr on\" data-scoreVal=\"1000\"></div>")
 								break;
 							default:
 								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"3\" data-scoreVal=\"400\"></div>");
-								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m bs on\" data-scoreVal=\"400\"></div>")
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m bs on\" data-scoreVal=\"1000\"></div>")
 								break;
 						}
 					}else{
+						var random_comtype = Math.ceil(Math.random() * 4);
 						switch (random_comtype){
 							case 1:
 								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"2\" data-scoreVal=\"400\"></div>");
-								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m clm on\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m clm on\" data-scoreVal=\"1000\"></div>");
 								break;
 							case 2:
 								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"5\" data-scoreVal=\"400\"></div>");
-								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m lw on\" data-scoreVal=\"400\"></div>")
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m lw on\" data-scoreVal=\"1000\"></div>")
 								break;
 							case 3:
 								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"9\" data-scoreVal=\"400\"></div>");
-								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m tr on\" data-scoreVal=\"400\"></div>")
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m tr on\" data-scoreVal=\"1000\"></div>")
+								break;
+							case 4:
+								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"9\" data-scoreVal=\"400\"></div>");
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m dk on\" data-scoreVal=\"1000\"></div>")
 								break;
 							default:
 								//$(".hit-targets" + hitArea).append("<div class=\"img com-type-m on\" data-varComm=\"5\" data-scoreVal=\"400\"></div>");
-								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m clm on\" data-scoreVal=\"400\"></div>")
+								$(".hit-targets" + hitArea).append("<div class=\"img com-type-m clm on\" data-scoreVal=\"1000\"></div>")
 								break;
 						}
 					}
@@ -700,6 +611,56 @@ function createNewPet(hitArea){
 		}
 	}, timeout*1000);
 }
+
+function startGame(){
+	//start Countdown and Timer
+	counter = new Counter('countdown');
+
+	//create first pet for every location 
+	setTimeout(function() {
+		$(".hit-targets.location-cardboardBox").append("<div class=\"img dog-type-l on\" data-scoreVal=\"200\"></div>");
+		setPetType(".location-cardboardBox", 0);
+		var appearTime = Math.ceil(Math.random() * 3);
+		setTimeout(function() {
+			if(!getHitVariable(".location-cardboardBox") && !getControlVariable(".location-cardboardBox")){
+				$(".hit-targets.location-cardboardBox").children("div").remove();
+				createNewPet(".location-cardboardBox");
+		}
+			resetControlVariable(".location-cardboardBox");
+		}, appearTime*1000 + 2000); //time large dog appears; 1-3 seconds
+
+		var random = Math.ceil(Math.random() * 5);
+		setTimeout(function() {
+			createNewPet(".location-dumpster");
+		}, random*1000);
+
+		var random2 = Math.ceil(Math.random() * 5);
+		setTimeout(function() {
+			createNewPet(".location-trashcan1");
+		}, random2*1000);
+
+		var random3 = Math.ceil(Math.random() * 5);
+		setTimeout(function() {
+			createNewPet(".location-trashcan2");
+		}, random3*1000);
+
+		var random4 = Math.ceil(Math.random() * 5);
+		setTimeout(function() {
+			createNewPet(".location-bag");
+		}, random4*1000);
+
+		var random5 = Math.ceil(Math.random() * 5);
+		setTimeout(function() {
+			createNewPet(".location-manhole");
+		}, random5*1000);
+
+		/*var random6 = Math.ceil(Math.random() * 5);
+		setTimeout(function() {
+			createNewPet(".location-cardboardBox");
+		}, random6*1000);*/
+	}, 4000);
+}
+
 
 function setRandomDirection(){
 	random_direction = Math.ceil(Math.random() * 6);

@@ -14,7 +14,7 @@ html, body, p, div {
   font-family: 'Lato', sans-serif; }
 
 body {
-  background-image: url(../images/wood_1_@2X.png);
+  background-image: url(../images/wood_1_@2x.png);
   background-color: #1e1e1e; }
 
 #main-frame {
@@ -31,6 +31,7 @@ body {
   height: 100%;
   display: block;
   visibility: hidden;
+  opacity: 0;
   background-color: #921A1D;
   text-align: center; }
   .frame > div {
@@ -50,7 +51,9 @@ body {
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: none; }
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none; }
   .frame button:hover {
     color: #58595B; }
   .frame .green-btn {
@@ -58,7 +61,8 @@ body {
     margin: 0px 20px; }
 
 .frame.active {
-  visibility: visible; }
+  visibility: visible;
+  opacity: 1; }
 
 #game-menu {
   width: 100%;
@@ -215,22 +219,51 @@ body {
 .hit-cat-type-m {
   background-image: url(../images/sprite-cat-small.png); }
 
+/*.hit-com-type-animation {background-image: url(../images/sprite-coin.png);}
+
+.hit .hit-com-type-animation, .save .hit-com-type-animation {background-image: url(../images/CommissionerCoins.png);}
+
+.hit-targets.hit, .hit-targets.save{
+	.img.hit-com-type-animation{
+		background-size: 102px 102px;
+		left:-3px;
+		top:3px;
+	}
+}*/
+.com-type-m.bs {
+  background-image: url(../images/coin-bs.png);
+  left: 0px; }
+
+.com-type-m.clm {
+  background-image: url(../images/coin-clm.png);
+  left: 0px; }
+
+.com-type-m.dh {
+  background-image: url(../images/coin-dh.png);
+  left: 0px; }
+
+.com-type-m.lw {
+  background-image: url(../images/coin-lw.png);
+  left: 0px; }
+
+.com-type-m.sr {
+  background-image: url(../images/coin-sr.png);
+  left: 0px; }
+
+.com-type-m.tr {
+  background-image: url(../images/coin-tr.png);
+  left: 0px; }
+
+.com-type-m.dk {
+  background-image: url(../images/coin-dk.png);
+  left: 0px; }
+
+.hit-targets .img.hit-com-type-animation, .hit-targets .img.hit-com-type-animation {
+  background-size: 148px 76px;
+  bottom: -21px;
+  left: 5px; }
+
 .hit-com-type-animation {
-  background-image: url(../images/sprite-coin.png); }
-
-.hit .hit-com-type-animation, .save .hit-com-type-animation {
-  background-image: url(../images/CommissionerCoins.png); }
-
-.hit-targets.hit .img.hit-com-type-animation, .hit-targets.save .img.hit-com-type-animation {
-  background-size: 102px 102px;
-  left: -3px;
-  top: 3px; }
-
-.hit-targets.kill .img.hit-com-type-animation, .hit-targets.saved .img.hit-com-type-animation {
-  background-size: 193px 100px; }
-
-.kill .hit-com-type-animation,
-.saved .hit-com-type-animation {
   background-image: url(../images/commissionerCoins_animation.png);
   width: 100px;
   height: 100px;
@@ -244,27 +277,27 @@ body {
   0% {
     background-position: 0px 0; }
   100% {
-    background-position: -193px 0; } }
+    background-position: -148px 0; } }
 @-moz-keyframes play {
   0% {
     background-position: 0px 0; }
   100% {
-    background-position: -193px 0; } }
+    background-position: -148px 0; } }
 @-ms-keyframes play {
   0% {
     background-position: 0px 0; }
   100% {
-    background-position: -193px 0; } }
+    background-position: -148px 0; } }
 @-o-keyframes play {
   0% {
     background-position: 0px 0; }
   100% {
-    background-position: -193px 0; } }
+    background-position: -148px 0; } }
 @keyframes play {
   0% {
     background-position: 0px 0; }
   100% {
-    background-position: -193px 0; } }
+    background-position: -148px 0; } }
 .hit .hit-dog-type-l {
   background-position: -132px 0px; }
 
@@ -299,24 +332,6 @@ body {
 
 .saved .hit-cat-type-m {
   background-position: -476px 0px; }
-
-.com-type-m.bs {
-  background-image: url(../images/coin-bs.png); }
-
-.com-type-m.clm {
-  background-image: url(../images/coin-clm.png); }
-
-.com-type-m.dh {
-  background-image: url(../images/coin-dh.png); }
-
-.com-type-m.lw {
-  background-image: url(../images/coin-lw.png); }
-
-.com-type-m.sr {
-  background-image: url(../images/coin-sr.png); }
-
-.com-type-m.tr {
-  background-image: url(../images/coin-tr.png); }
 
 /*.com-type-m[data-varComm="1"] {background-position: -103px 3px;}
 .com-type-m[data-varComm="2"] {background-position: -199px 0px;}
@@ -356,6 +371,8 @@ body {
   -ms-transform: scale(1.55);
   -o-transform: scale(1.55);
   transform: scale(1.55);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
   z-index: 1000; }
   .hit-targets > .img {
     position: absolute;
@@ -625,6 +642,9 @@ body {
 
 .kill-commissioner > div, .save-commissioner > div {
   position: relative; }
+.kill-commissioner .headline-pic img, .save-commissioner .headline-pic img {
+  margin-left: -47px;
+  margin-bottom: 25px; }
 .kill-commissioner .subheadline, .save-commissioner .subheadline {
   font-family: Veneer-Three;
   font-size: 4em;
@@ -633,11 +653,12 @@ body {
 .kill-commissioner .subheadline2, .save-commissioner .subheadline2 {
   width: 60%;
   font-family: 'Lato', sans-serif;
-  font-size: 2em;
+  font-size: 1.8em;
+  line-height: 1.3em;
   color: #ffffff;
   margin: 0 auto; }
 .kill-commissioner .button-wrapper, .save-commissioner .button-wrapper {
-  margin-top: 50px; }
+  margin-top: 60px; }
 
 .kill-score > div, .save-score > div {
   position: relative; }

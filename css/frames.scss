@@ -98,6 +98,13 @@
 		position: relative;
 	}
 
+	.headline-pic{
+		img{
+			margin-left: -47px;
+			margin-bottom: 25px;
+		}
+	}
+
 	.subheadline{
 		font-family: Veneer-Three;
 		font-size: 4em;
@@ -107,12 +114,13 @@
 	.subheadline2{
 		width: 60%;
 		font-family: 'Lato', sans-serif;
-		font-size: 2em;
+		font-size: 1.8em;
+		line-height: 1.3em;
 		color: #ffffff;
 		margin:0 auto;
 	}
 	.button-wrapper	{
-		margin-top: 50px;
+		margin-top: 60px;
 	}
 }
 

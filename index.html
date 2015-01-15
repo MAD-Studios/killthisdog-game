@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="viewport" content="initial-scale=1, minimum-scale=0.1, user-scalable=1" id="Viewport">
 
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
@@ -124,7 +124,7 @@
                             LARGE DOGS
                         </div>
                         <div class="points">
-                            100 POINTS
+                            200 POINTS
                         </div>
                     </div>
                     <div class="col-4">
@@ -135,7 +135,7 @@
                             SMALL DOGS
                         </div>
                         <div class="points">
-                            200 POINTS
+                            400 POINTS
                         </div>
                     </div>
                     <div class="col-4">
@@ -146,7 +146,7 @@
                             CATS
                         </div>
                         <div class="points">
-                            300 POINTS
+                            600 POINTS
                         </div>
                     </div>
                 </div>
@@ -158,13 +158,13 @@
             <!-- Add an 'active' class to show -->
             <section class="frame kill-commissioner">
                 <div class="headline-pic">
-                    <img draggable="false" src="images/coin-mdk.png">
+                    <img draggable="false" src="images/commissioner_kill_intro.png">
                 </div>
                 <div class="subheadline">
                     COMMISSIONER KILL BOOST
                 </div>
                <div class="subheadline2">
-                   Apathetic Broward County Commissioners are your friends! Whack a Commissioner Kill Boost for an extra 400 points!
+                   Apathetic Broward County Commissioners are ready to help you kill more animals. Catch a Commissioner Boost for an extra 1000 points!
                 </div>
                 <div class="button-wrapper">
                     <button id="startkilling">START KILLING!</button>
@@ -188,7 +188,7 @@
                             LARGE DOGS
                         </div>
                         <div class="points">
-                            100 POINTS
+                            200 POINTS
                         </div>
                     </div>
                     <div class="col-4">
@@ -199,7 +199,7 @@
                             SMALL DOGS
                         </div>
                         <div class="points">
-                            200 POINTS
+                            400 POINTS
                         </div>
                     </div>
                     <div class="col-4">
@@ -210,7 +210,7 @@
                             CATS
                         </div>
                         <div class="points">
-                            300 POINTS
+                            600 POINTS
                         </div>
                     </div>
                 </div>
@@ -222,13 +222,13 @@
             <!-- Add an 'active' class to show -->
             <section class="frame save-commissioner">
                 <div class="headline-pic">
-                    <img draggable="false" src="images/coin-mdk.png">
+                    <img draggable="false" src="images/commissioner_save_intro.png">
                 </div>
                 <div class="subheadline">
                     COMMISSIONER BOOST
                 </div>
                <div class="subheadline2">
-                   These Broward County Commissioners want to help save the animals! Catch a Commissioner Boost for an extra 400 points!
+                   These Broward County Commissioners want to help save the animals! Catch a Commissioner Boost for an extra 1000 points!
                 </div>
                 <div class="button-wrapper">
                     <button id="startsaving">SAVE THE PETS!</button>
@@ -281,9 +281,10 @@
                 </div>
                 
                 <div class="hit-targets location-dumpster" name="dumpster-target"></div>
-                <div class="hit-targets location-bag" name="bag-target"></div>
+                
                 <div class="hit-targets location-trashcan1" name="trashcan1-target"></div>
                 <div class="hit-targets location-trashcan2" name="trashcan2-target"></div>
+                <div class="hit-targets location-bag" name="bag-target"></div>
                 <div class="hit-targets location-manhole" name="manhole-target"></div>
                 <div class="hit-targets location-cardboardBox" name="manhole-target"></div>
 
@@ -337,12 +338,12 @@
             <!-- Add an 'active' class to show -->
             <section class="frame share">
                 <div class="bodytext">
-                    Over 20,000 shelter pets are euthanized in Broward County each year at an average cost of $223 per animal to the taxpayer. 
+                    Over 20,000 shelter pets are euthanized in Broward County each year. In 2013 it cost taxpayers  an average of $223 per animal. While Broward spends nearly $5.3 million on the animal services budget, only a fraction of that goes towards programs to end the killing.
                     <br/><br/>
                     Pets’ Broward is a group of compassionate citizens who are committed to ending the yearly killing of thousands of pets in Broward’s public and private shelters through the implementation of the No Kill resolution unanimously passed by the Broward County Commission. To find out what you can do to help end the killing, click Learn More!
                 </div>
                 <div class="learn-more">
-                    <button class="learn-more-btn" id="learnMore"><a href="http://petsbroward.org/help-end-the-killing/" target="_blank">LEARN MORE</a></button>
+                    <button class="learn-more-btn" id="learnMore"><a href="http://petsbroward.org/commission/" target="_blank">LEARN MORE</a></button>
                 </div>
                 <div class="button-wrapper">
                     <button class="green-btn" id="playAgain"><i class="fa fa-repeat"></i>&nbsp;PLAY AGAIN</button>
@@ -365,7 +366,27 @@
         <script src="js/counter.js"></script>
         <script src="js/sounds.js"></script>
         <script src="js/game.js"></script>
-
+        <script>
+            $(function () {
+                $(window).on('load orientationchange', function () {
+                    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+                        var ww = ( $(window).width() < window.screen.width ) ? $(window).width() : window.screen.width; //get proper width
+                        var mw = $('#main-frame').width(); // min width of site
+                        var ratio =  ww / mw; //calculate ratio
+                        if( ww < mw){ //smaller than minimum size
+                            if (window.orientation == 90 || window.orientation == -90) {
+                                $('#Viewport').attr('content', 'initial-scale=' + ratio + ', user-scalable=yes, height=' + ww);
+                            } else {
+                                $('#Viewport').attr('content', 'initial-scale=' + ratio + ',  user-scalable=yes, width=' + ww);
+                            }
+                        }   else{ //regular size
+                            $('#Viewport').attr('content', 'initial-scale=1.0, maximum-scale=2, minimum-scale=1.0, user-scalable=yes, width=' + ww);
+                        }
+                    }
+                });
+                
+            });
+        </script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
