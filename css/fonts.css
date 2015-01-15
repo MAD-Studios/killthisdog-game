@@ -1,0 +1,8 @@
+
+@font-face {
+  font-family: 'Veneer-Three';
+  src: url('../fonts/VeneerThree.eot?#iefix') format('embedded-opentype'),  url('../fonts/VeneerThree.otf')  format('opentype'),
+	     url('../fonts/VeneerThree.woff') format('woff'), url('../fonts/VeneerThree.ttf')  format('truetype'), url('../fonts/VeneerThree.svg#VeneerThree') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

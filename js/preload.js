@@ -36,7 +36,6 @@
  ]);
 
  function handleComplete() {
-    $(".frame.loading-screen").removeClass("active");
+     $(".frame.loading-screen").removeClass("active");
      $(".frame.start-screen").addClass("active");
-     console.log("done");
  }
